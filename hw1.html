@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<style>
+html,
+body {
+    font-family: Helvetica, sans-serif;
+    font-size: 28px;
+}
+
+.parent {
+    overflow: auto;
+}
+
+.bar-chart rect {
+    fill: teal;
+    transform: scale(2, 1)
+}
+
+.bchart1 {
+    float: left;
+}
+
+.bchart2 {
+    float: right;
+}
+
+.line-chart {
+    fill: none;
+    stroke: teal;
+    stroke-width: 1;
+    transform: scale(1.4, 1.4);
+}
+
+.area-chart {
+    fill: teal;
+    stroke: teal;
+    stroke-width: 1;
+    transform: scale(1.4, 1.4);
+}
+
+.scatter {
+    fill: teal;
+    transform: translate(20px) scale(2, 2);
+}
+</style>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Example page</title>
+</head>
+
+<body>
+    <div>Bar Charts</div>
+    <div class="parent">
+        <svg class="bar-chart bchart1" height="300">
+            <g transform="translate(0,0)">
+                <rect width="100" height="19"></rect>
+            </g>
+            <g transform="translate(0,20)">
+                <rect width="80" height="19"></rect>
+            </g>
+            <g transform="translate(0,40)">
+                <rect width="130" height="19"></rect>
+            </g>
+            <g transform="translate(0,60)">
+                <rect width="90" height="19"></rect>
+            </g>
+            <g transform="translate(0,80)">
+                <rect width="110" height="19"></rect>
+            </g>
+            <g transform="translate(0,100)">
+                <rect width="140" height="19"></rect>
+            </g>
+            <g transform="translate(0,120)">
+                <rect width="60" height="19"></rect>
+            </g>
+            <g transform="translate(0,140)">
+                <rect width="40" height="19"></rect>
+            </g>
+            <g transform="translate(0,160)">
+                <rect width="120" height="19"></rect>
+            </g>
+            <g transform="translate(0,180)">
+                <rect width="70" height="19"></rect>
+            </g>
+            <g transform="translate(0,200)">
+                <rect width="50" height="19"></rect>
+            </g>
+        </svg>
+        <svg class="bar-chart bchart2" height="300">
+            <g transform="translate(0,0)">
+                <rect width="80.4" height="19"></rect>
+            </g>
+            <g transform="translate(0,20)">
+                <rect width="69.5" height="19"></rect>
+            </g>
+            <g transform="translate(0,40)">
+                <rect width="75.8" height="19"></rect>
+            </g>
+            <g transform="translate(0,60)">
+                <rect width="88.1" height="19"></rect>
+            </g>
+            <g transform="translate(0,80)">
+                <rect width="83.3" height="19"></rect>
+            </g>
+            <g transform="translate(0,100)">
+                <rect width="99.6" height="19"></rect>
+            </g>
+            <g transform="translate(0,120)">
+                <rect width="72.4" height="19"></rect>
+            </g>
+            <g transform="translate(0,140)">
+                <rect width="42.6" height="19"></rect>
+            </g>
+            <g transform="translate(0,160)">
+                <rect width="108.4" height="19"></rect>
+            </g>
+            <g transform="translate(0,180)">
+                <rect width="48.2" height="19"></rect>
+            </g>
+            <g transform="translate(0,200)">
+                <rect width="56.8" height="19"></rect>
+            </g>
+        </svg>
+    </div>
+    <div>Line Charts</div>
+    <div class="parent">
+        <svg class="bchart1" height="300">
+            <polyline class="line-chart" points="0,100 20,80 40,130 60,90 80,110 100,140 120,60 140,40 160,120 180,70 200,50" />
+        </svg>
+        <svg class="bchart2" height="300">
+            <polyline class="line-chart" points="0,100 20,80 40,130 60,90 80,110 100,140 120,60 140,40 160,120 180,70 200,50" />
+        </svg>
+    </div>
+    <div>Area Charts</div>
+    <div class="parent">
+        <svg class="bchart1" height="300">
+            <polyline class="area-chart" points="0,200 0,100 20,80 40,130 60,90 80,110 100,140 120,60 140,40 160,120 180,70 200,50 200,200" />
+        </svg>
+        <svg class="bchart2" height="300">
+            <polyline class="area-chart" points="0,200 0,80.4 20,69.5 40,75.8 60,88.1 80,83.3 100,99.6 120,72.4 140,42.6 160,108.4 180,48.2 200,56.8 200,200" />
+        </svg>
+    </div>
+    <div>Scatterplot</div>
+    <div class="parent">
+        <svg width="500" height="300">
+            <g class="scatter">
+                <circle cy="80.4" cx="100" r="6" />
+                <circle cy="69.5" cx="80" r="6" />
+                <circle cy="75.8" cx="130" r="6" />
+                <circle cy="88.1" cx="90" r="6" />
+                <circle cy="83.3" cx="110" r="6" />
+                <circle cy="99.6" cx="140" r="6" />
+                <circle cy="72.4" cx="60" r="6" />
+                <circle cy="42.6" cx="40" r="6" />
+                <circle cy="108.4" cx="120" r="6" />
+                <circle cy="48.2" cx="70" r="6" />
+                <circle cy="56.8" cx="50" r="6" />
+            </g>
+        </svg>
+    </div>
+</body>
+
+</html>
