@@ -50,12 +50,49 @@ function updateBarChart(selectedDimension) {
 
     /**** Bar Chart ****/
     var svg = d3.select("svg");
-    svg.selectAll("rect")
-        .data(allWorldCupData, function(d) {
+
+    var barGroups = svg.selectAll(".barGroup")
+        // here we tell D3 how to know which objects are the
+        // same thing between updates (object consistency)
+        .data(allWorldCupData, function (d) {
+        // we use the product name as the key
             return d[selectedDimension];
-        })
-        .enter()
-        .append("rect")
+        });
+
+    // var groupBars = svg.append("g")
+    //     .classed("barGroup", true);
+
+
+    var barGroupsEnter = barGroups.enter()
+        .append("g")
+        .classed("barGroup", true)
+
+    // var groupBarEnter = groupBars.selectAll("rect")
+        // .data(allWorldCupData, function(d) {
+        //     return d[selectedDimension];
+        // })
+        // .enter()
+
+    // Append X Axis
+    svg.append("g")
+        // css class for the axis
+        // moving the axis to the right place
+        .attr("transform", "translate(" + 0 + "," + (height - initialYSpace) + ")")
+        // moving the axis to the right place
+        .call(xAxis)
+        .selectAll("text")
+        .style("text-anchor", "end")
+        .attr("dx", "-.8em")
+        .attr("dy", ".15em")
+        .attr("transform", "rotate(-65)");
+
+    // Append Y Axis
+    svg.append("g")
+        // css class for the axis
+        .attr("transform", "translate(" + initialXSpace + "," + 0 + ")")
+        .call(yAxis)
+
+    barGroupsEnter.append("rect")
         .attr("x", function(d, i) {
             return initialXSpace + (i * spacing);
         })
@@ -70,25 +107,18 @@ function updateBarChart(selectedDimension) {
 
     console.log(allWorldCupData);
 
-    svg.append("g")
-        // css class for the axis
-        .classed("axis", true)
-        // moving the axis to the right place
-        .attr("transform", "translate(" + 0 + "," + (height - initialYSpace) + ")")
-        // moving the axis to the right place
-        .call(xAxis)
-        .selectAll("text")
-        .style("text-anchor", "end")
-        .attr("dx", "-.8em")
-        .attr("dy", ".15em")
-        .attr("transform", "rotate(-65)");
 
-    svg.append("g")
-        // css class for the axis
-        .classed("axis", true)
-        .attr("transform", "translate(" + initialXSpace + "," + 0 + ")")
-        .call(yAxis)
 
+    //---------------- Exit and Exit Animations ------------------------
+
+    // var allGroups = svg.selectAll(".barGroup");
+    // console.log(allGroups);
+    barGroups.exit()
+        // .attr("opacity", 1)
+        // .transition()
+        // .duration(500)
+        // .attr("opacity", 0)
+        .remove();
 
     // Create colorScale
 
@@ -111,14 +141,19 @@ var selection = document.getElementById('dataset');
  *  goals, matches, attendance and teams.
  */
 function chooseData() {
+    // var svg = d3.select("#barChart");
+    // var allGroups = svg.selectAll(".barGroup");
+    // console.log(allGroups);
+    // allGroups.exit()
+    //     // .attr("opacity", 1)
+    //     // .transition()
+    //     // .duration(500)
+    //     // .attr("opacity", 0)
+    //     .remove();
+
     currentSelection = selection.options[selection.selectedIndex].value;
 
     updateBarChart(currentSelection);
-
-    console.log(currentSelection);
-
-
-
 }
 
 /* DATA LOADING */
@@ -152,5 +187,5 @@ d3.csv("data/fifa-world-cup.csv", function(error, csv) {
     // Store csv data in a global variable
     allWorldCupData = csv;
     // Draw the Bar chart for the first time
-    updateBarChart('attendance');
+    updateBarChart('teams');
 });
