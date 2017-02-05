@@ -1,27 +1,96 @@
 // Global var for FIFA world cup data
 var allWorldCupData;
 
+var height = 400;
+var width = 500;
+
+var padding = 25;
+var barWidth = 20;
+
 /**
  * Render and update the bar chart based on the selection of the data type in the drop-down box
  *
  * @param selectedDimension a string specifying which dimension to render in the bar chart
  */
 function updateBarChart(selectedDimension) {
-
-    var svgBounds = d3.select("#barChart").node().getBoundingClientRect(),
-        xAxisWidth = 100,
-        yAxisHeight = 70;
-
     // ******* TODO: PART I *******
 
-    // Create the x and y scales; make
-    // sure to leave room for the axes
+    var svgBounds = d3.select("#barChart").node().getBoundingClientRect();
+
+    var initialXSpace = 50;
+    var spacing = (width - initialXSpace) / allWorldCupData.length;
+    var initialYSpace = 40;
+
+    /**** X Bottom Axis ****/
+    var allYears = (function() {
+        var result = [];
+
+        for (i of allWorldCupData) {
+            result.push(i.YEAR);
+        }
+        return result.reverse();
+    })();
+
+    var xScale = d3.scaleBand()
+        .domain(allYears)
+        .range([initialXSpace, width - spacing + barWidth]);
+
+    var xAxis = d3.axisBottom(xScale);
+
+    /**** Y Left Axis ****/
+    var max = d3.max(allWorldCupData, function(d) {
+        return parseInt(d.GOALS);
+    });
+    var yScale = d3.scaleLinear()
+        .domain([max, 0])
+        .range([spacing, height - initialYSpace])
+        .nice();
+    var yAxis = d3.axisLeft(yScale)
+        .tickSizeOuter(0); // Outer tick size should have size 0
+
+    /**** Bar Chart ****/
+    var svg = d3.select("svg");
+    svg.selectAll("rect")
+        .data(allWorldCupData, function(d) {
+            return d.GOALS;
+        })
+        .enter()
+        .append("rect")
+        .attr("x", function(d, i) {
+            return initialXSpace + (i * spacing);
+        })
+        .attr("y", function(d) {
+            return (height - (initialYSpace)) - Math.abs(yScale(d.GOALS) - yScale(0));
+        })
+        .attr("height", function(d) {
+            return Math.abs(yScale(d.GOALS) - yScale(0));
+        })
+        .attr("width", barWidth)
+        .style("fill", "steelblue");
+
+    console.log(allWorldCupData);
+
+    svg.append("g")
+        // css class for the axis
+        .classed("axis", true)
+        // moving the axis to the right place
+        .attr("transform", "translate(" + 0 + "," + (height - initialYSpace) + ")")
+        // moving the axis to the right place
+        .call(xAxis)
+        .selectAll("text")
+        .style("text-anchor", "end")
+        .attr("dx", "-.8em")
+        .attr("dy", ".15em")
+        .attr("transform", "rotate(-65)");
+
+    svg.append("g")
+        // css class for the axis
+        .classed("axis", true)
+        .attr("transform", "translate(" + initialXSpace + "," + 0 + ")")
+        .call(yAxis)
+
 
     // Create colorScale
-
-    // Create the axes (hint: use #xAxis and #yAxis)
-
-    // Create the bars (hint: use #bars)
 
     // ******* TODO: PART II *******
 
@@ -54,9 +123,9 @@ function chooseData() {
 // (nothing actually happens)
 
 // Load CSV file
-d3.csv("data/fifa-world-cup.csv", function (error, csv) {
+d3.csv("data/fifa-world-cup.csv", function(error, csv) {
 
-    csv.forEach(function (d) {
+    csv.forEach(function(d) {
 
         // Convert numeric values to 'numbers'
         d.year = +d.YEAR;
