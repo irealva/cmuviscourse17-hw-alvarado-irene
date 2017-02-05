@@ -1,11 +1,13 @@
 // Global var for FIFA world cup data
 var allWorldCupData;
 
-var height = 400;
-var width = 500;
+const height = 400;
+const width = 500;
 
-var padding = 25;
-var barWidth = 20;
+const padding = 25;
+const barWidth = 20;
+
+var currentSelection = 'attendance'; // Default starting selection
 
 /**
  * Render and update the bar chart based on the selection of the data type in the drop-down box
@@ -13,13 +15,11 @@ var barWidth = 20;
  * @param selectedDimension a string specifying which dimension to render in the bar chart
  */
 function updateBarChart(selectedDimension) {
-    // ******* TODO: PART I *******
-
     var svgBounds = d3.select("#barChart").node().getBoundingClientRect();
 
-    var initialXSpace = 50;
-    var spacing = (width - initialXSpace) / allWorldCupData.length;
-    var initialYSpace = 40;
+    const initialXSpace = 50;
+    const spacing = (width - initialXSpace) / allWorldCupData.length;
+    const initialYSpace = 40;
 
     /**** X Bottom Axis ****/
     var allYears = (function() {
@@ -39,7 +39,7 @@ function updateBarChart(selectedDimension) {
 
     /**** Y Left Axis ****/
     var max = d3.max(allWorldCupData, function(d) {
-        return parseInt(d.GOALS);
+        return parseInt(d[selectedDimension]);
     });
     var yScale = d3.scaleLinear()
         .domain([max, 0])
@@ -52,7 +52,7 @@ function updateBarChart(selectedDimension) {
     var svg = d3.select("svg");
     svg.selectAll("rect")
         .data(allWorldCupData, function(d) {
-            return d.GOALS;
+            return d[selectedDimension];
         })
         .enter()
         .append("rect")
@@ -60,10 +60,10 @@ function updateBarChart(selectedDimension) {
             return initialXSpace + (i * spacing);
         })
         .attr("y", function(d) {
-            return (height - (initialYSpace)) - Math.abs(yScale(d.GOALS) - yScale(0));
+            return (height - (initialYSpace)) - Math.abs(yScale(d[selectedDimension]) - yScale(0));
         })
         .attr("height", function(d) {
-            return Math.abs(yScale(d.GOALS) - yScale(0));
+            return Math.abs(yScale(d[selectedDimension]) - yScale(0));
         })
         .attr("width", barWidth)
         .style("fill", "steelblue");
@@ -102,6 +102,8 @@ function updateBarChart(selectedDimension) {
 
 }
 
+var selection = document.getElementById('dataset');
+
 /**
  *  Check the drop-down box for the currently selected data type and update the bar chart accordingly.
  *
@@ -109,10 +111,13 @@ function updateBarChart(selectedDimension) {
  *  goals, matches, attendance and teams.
  */
 function chooseData() {
+    currentSelection = selection.options[selection.selectedIndex].value;
 
-    // ******* TODO: PART I *******
-    //Changed the selected data when a user selects a different
-    // menu item from the drop down.
+    updateBarChart(currentSelection);
+
+    console.log(currentSelection);
+
+
 
 }
 
