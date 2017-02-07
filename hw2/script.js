@@ -92,6 +92,11 @@ function updateBarChart(selectedDimension) {
     chart.select('.yAxis')
         .call(yNewAxis)
 
+    /**** Color scale ****/
+    var colorScale = d3.scaleSqrt()
+      .domain([max, 0])
+      .range(["#87CEFA", "#42647F"]);
+
     //select all bars on the graph, take them out, and exit the previous data set.
     //then you can add/enter the new data set
     var bars = chart.selectAll(".bar")
@@ -114,9 +119,7 @@ function updateBarChart(selectedDimension) {
             return Math.abs(yScale(d[selectedDimension]) - yScale(0));
         })
         .attr("width", barWidth)
-        .style("fill", "steelblue");
-
-    // Create colorScale
+        .style("fill", function(d, i) { return colorScale(i); });
 
     // ******* TODO: PART II *******
 
@@ -177,8 +180,8 @@ d3.csv("data/fifa-world-cup.csv", function(error, csv) {
     // Store csv data in a global variable
     allWorldCupData = csv;
 
-    setup('teams');
+    setup(currentSelection);
 
     // Draw the Bar chart for the first time
-    updateBarChart('teams');
+    updateBarChart(currentSelection);
 });
