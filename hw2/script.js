@@ -179,6 +179,8 @@ d3.csv("data/fifa-world-cup.csv", function(error, csv) {
 
     // Store csv data in a global variable
     allWorldCupData = csv;
+    
+    allWorldCupData = allWorldCupData.reverse();
 
     setup(currentSelection);
 
