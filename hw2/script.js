@@ -12,12 +12,11 @@ var currentSelection = 'attendance'; // Default starting selection
 var chart;
 var initialXSpace;
 var spacing;
-var initialYSpace ;
-var yScale;
+var initialYSpace;
 
 function setup(selectedDimension) {
     chart = d3.select(".chart")
-    	.append("g");
+        .append("g");
 
     initialXSpace = 50;
     spacing = (width - initialXSpace) / allWorldCupData.length;
@@ -40,35 +39,35 @@ function setup(selectedDimension) {
     var xAxis = d3.axisBottom(xScale);
 
     /**** Y Left Axis ****/
-    var max = d3.max(allWorldCupData, function(d) {
-        return parseInt(d[selectedDimension]);
-    });
-    yScale = d3.scaleLinear()
+    var max = findMax(selectedDimension);
+
+    var yScale = d3.scaleLinear()
         .domain([max, 0])
         .range([spacing, height - initialYSpace])
         .nice();
+
     var yAxis = d3.axisLeft(yScale)
         .tickSizeOuter(0); // Outer tick size should have size 0
 
+    /**** Bar Chart ****/
+    chart.append("g")
+        .attr("class", "yAxis")
+        // css class for the axis
+        .attr("transform", "translate(" + initialXSpace + "," + 0 + ")")
+        .call(yAxis);
 
     chart.append("g")
-		  .attr("class", "y yAxis")
-          // css class for the axis
-          .attr("transform", "translate(" + initialXSpace + "," + 0 + ")")
-          .call(yAxis);
-
-    chart.append("g")
-		  .attr("class", "xAxis")
-          // css class for the axis
-          // moving the axis to the right place
-          .attr("transform", "translate(" + 0 + "," + (height - initialYSpace) + ")")
-          // moving the axis to the right place
-          .call(xAxis)
-          .selectAll("text")
-          .style("text-anchor", "end")
-          .attr("dx", "-.8em")
-          .attr("dy", ".15em")
-          .attr("transform", "rotate(-65)");
+        .attr("class", "xAxis")
+        // css class for the axis
+        // moving the axis to the right place
+        .attr("transform", "translate(" + 0 + "," + (height - initialYSpace) + ")")
+        // moving the axis to the right place
+        .call(xAxis)
+        .selectAll("text")
+        .style("text-anchor", "end")
+        .attr("dx", "-.8em")
+        .attr("dy", ".15em")
+        .attr("transform", "rotate(-65)");
 }
 
 
@@ -79,31 +78,28 @@ function setup(selectedDimension) {
  */
 function updateBarChart(selectedDimension) {
     /**** Y Left Axis ****/
-    var max = d3.max(allWorldCupData, function(d) {
-        return parseInt(d[selectedDimension]);
-    });
-    yScale = d3.scaleLinear()
+    var max = findMax(selectedDimension);
+
+    var yScale = d3.scaleLinear()
         .domain([max, 0])
         .range([spacing, height - initialYSpace])
         .nice();
+
     var yNewAxis = d3.axisLeft(yScale)
         .tickSizeOuter(0); // Outer tick size should have size 0
-    //left axis
-chart.select('.y')
-      .call(yNewAxis)
 
-
+    // Update the left axis
+    chart.select('.yAxis')
+        .call(yNewAxis)
 
     //select all bars on the graph, take them out, and exit the previous data set.
-	//then you can add/enter the new data set
-	var bars = chart.selectAll(".bar")
-		.remove()
-		.exit()
-        .data(allWorldCupData, function (d) {
-        // we use the product name as the key
+    //then you can add/enter the new data set
+    var bars = chart.selectAll(".bar")
+        .remove()
+        .exit()
+        .data(allWorldCupData, function(d) {
             return d[selectedDimension];
         });
-
 
     bars.enter()
         .append("rect")
@@ -120,85 +116,6 @@ chart.select('.y')
         .attr("width", barWidth)
         .style("fill", "steelblue");
 
-
-
-    /**** Bar Chart ****/
-    // var svg = d3.select("svg");
-
-    // var mainChart = d3.select("#barChart").selectAll('svg')
-
-
-    // var mainChartEnter = mainChart.enter()
-    //   .append('svg')
-	//   .attr('id','mainChart');
-
-    // var barGroups = svg.selectAll(".barGroup")
-        // here we tell D3 how to know which objects are the
-        // same thing between updates (object consistency)
-
-
-    // var groupBars = svg.append("g")
-    //     .classed("barGroup", true);
-
-
-    // var barGroupsEnter = barGroups.enter()
-    //     .append("g")
-    //     .classed("barGroup", true)
-
-    // var groupBarEnter = groupBars.selectAll("rect")
-        // .data(allWorldCupData, function(d) {
-        //     return d[selectedDimension];
-        // })
-        // .enter()
-
-    // Append X Axis
-
-    // // Append Y Axis
-    //
-    //
-    // mainChartEnter.append("g")
-	// 	.attr("id","grpBars");
-    //
-    // // Every time the function is called
-	// mainChart.select('.axis')
-	//   	.call(yAxis);
-
-    // var bar = mainChart.select("#grpBars").selectAll(".chartBars")
-    //     .data(allWorldCupData, function (d) {
-    //     // we use the product name as the key
-    //         return d[selectedDimension];
-    //     });
-
-    // bar.enter()
-    //     .append("rect")
-    //     .attr("class", "chartBars")
-    //     .attr("x", function(d, i) {
-    //         return initialXSpace + (i * spacing);
-    //     })
-    //     .attr("y", function(d) {
-    //         return (height - (initialYSpace)) - Math.abs(yScale(d[selectedDimension]) - yScale(0));
-    //     })
-    //     .attr("height", function(d) {
-    //         return Math.abs(yScale(d[selectedDimension]) - yScale(0));
-    //     })
-    //     .attr("width", barWidth)
-    //     .style("fill", "steelblue");
-
-    console.log(allWorldCupData);
-
-
-
-    //---------------- Exit and Exit Animations ------------------------
-
-    // var allGroups = svg.selectAll(".barGroup");
-    // console.log(allGroups);
-    // bar .exit()
-    //     // .attr("opacity", 1)
-    //     // .transition()
-    //     // .duration(500)
-    //     // .attr("opacity", 0)
-    //     .remove();
-
     // Create colorScale
 
     // ******* TODO: PART II *******
@@ -211,6 +128,15 @@ chart.select('.y')
 
 }
 
+function findMax(selectedDimension) {
+    var max = d3.max(allWorldCupData, function(d) {
+        return parseInt(d[selectedDimension]);
+    });
+
+    return max;
+}
+
+
 var selection = document.getElementById('dataset');
 
 /**
@@ -220,27 +146,11 @@ var selection = document.getElementById('dataset');
  *  goals, matches, attendance and teams.
  */
 function chooseData() {
-    // var svg = d3.select("#barChart");
-    // var allGroups = svg.selectAll(".barGroup");
-    // console.log(allGroups);
-    // allGroups.exit()
-    //     // .attr("opacity", 1)
-    //     // .transition()
-    //     // .duration(500)
-    //     // .attr("opacity", 0)
-    //     .remove();
-
     currentSelection = selection.options[selection.selectedIndex].value;
-
-    console.log(currentSelection);
     updateBarChart(currentSelection);
 }
 
 /* DATA LOADING */
-
-// This is where execution begins; everything
-// above this is just function definitions
-// (nothing actually happens)
 
 // Load CSV file
 d3.csv("data/fifa-world-cup.csv", function(error, csv) {
