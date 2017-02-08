@@ -154,7 +154,7 @@ function updateBarChart(selectedDimension) {
             d3.select(this).attr("class", "bar")
         }
 
-        console.log(d3.select(this));
+        console.log(d3.select(this).node());
     })
     // ******* End PART II *******
 }
