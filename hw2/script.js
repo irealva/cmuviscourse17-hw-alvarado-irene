@@ -70,7 +70,6 @@ function setup(selectedDimension) {
         .attr("transform", "rotate(-65)");
 }
 
-
 /**
  * Render and update the bar chart based on the selection of the data type in the drop-down box
  *
@@ -94,8 +93,8 @@ function updateBarChart(selectedDimension) {
 
     /**** Color scale ****/
     var colorScale = d3.scaleSqrt()
-      .domain([max, 0])
-      .range(["#87CEFA", "#42647F"]);
+        .domain([max, 0])
+        .range(["#87CEFA", "#42647F"]);
 
     //select all bars on the graph, take them out, and exit the previous data set.
     //then you can add/enter the new data set
@@ -119,16 +118,31 @@ function updateBarChart(selectedDimension) {
             return Math.abs(yScale(d[selectedDimension]) - yScale(0));
         })
         .attr("width", barWidth)
-        .style("fill", function(d, i) { return colorScale(i); });
+        .style("fill", function(d, i) {
+            return colorScale(i);
+        });
 
-    // ******* TODO: PART II *******
-
+    // ******* PART II *******
     // Implement how the bars respond to click events
     // Color the selected bar to indicate is has been selected.
     // Make sure only the selected bar has this new color.
 
     // Output the selected bar to the console using console.log()
 
+    var barDOM = d3.selectAll(".chart .bar");
+    barDOM.on("click", function(){
+        var currentClass = d3.select(this).attr("class");
+
+        if(currentClass === "bar") {
+            d3.select(this).attr("class", "bar highlight")
+        }
+        else {
+            d3.select(this).attr("class", "bar")
+        }
+
+        console.log(d3.select(this));
+    })
+    // ******* End PART II *******
 }
 
 function findMax(selectedDimension) {
@@ -179,7 +193,6 @@ d3.csv("data/fifa-world-cup.csv", function(error, csv) {
 
     // Store csv data in a global variable
     allWorldCupData = csv;
-    
     allWorldCupData = allWorldCupData.reverse();
 
     setup(currentSelection);

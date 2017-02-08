@@ -116,7 +116,10 @@ header {
     float: left;
     width: 500px;
     margin-right: 20px;
+}
 
+.highlight {
+    fill: #FF6140 !important;
 }
 
 #world-map {
@@ -140,5 +143,4 @@ header {
 #xAxis text,
 #yAxis text {
     font-size: 14px;
-
 }
