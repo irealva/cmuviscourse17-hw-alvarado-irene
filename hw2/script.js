@@ -89,7 +89,8 @@ function updateBarChart(selectedDimension) {
 
     // Update the left axis
     chart.select('.yAxis')
-        .call(yNewAxis)
+        .transition().duration(750).ease(d3.easeSin)
+        .call(yNewAxis);
 
     /**** Color scale ****/
     var colorScale = d3.scaleSqrt()
@@ -99,13 +100,22 @@ function updateBarChart(selectedDimension) {
     //select all bars on the graph, take them out, and exit the previous data set.
     //then you can add/enter the new data set
     var bars = chart.selectAll(".bar")
-        .remove()
-        .exit()
         .data(allWorldCupData, function(d) {
-            return d[selectedDimension];
-        });
+            return d;
+        })
+        .exit()
+        .attr("opacity", 1)
+        .transition()
+        .duration(1500)
+        .attr("opacity", 0)
+        .remove()
 
-    bars.enter()
+    var newBars = chart.selectAll(".bar")
+        .data(allWorldCupData, function(d) {
+            return d;
+        })
+
+    newBars.enter()
         .append("rect")
         .attr("class", "bar")
         .attr("x", function(d, i) {
@@ -120,7 +130,11 @@ function updateBarChart(selectedDimension) {
         .attr("width", barWidth)
         .style("fill", function(d, i) {
             return colorScale(i);
-        });
+        })
+        .attr("opacity", 0)
+        .transition()
+        .duration(1500)
+        .attr("opacity", 1);
 
     // ******* PART II *******
     // Implement how the bars respond to click events
