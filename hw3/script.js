@@ -226,18 +226,23 @@ function drawMap(world) {
 
     projection = d3.geoConicConformal().scale(150).translate([400, 350]);
 
-    // ******* TODO: PART III *******
+    // Define default path generator
+    var path = d3.geoPath().projection(projection);
 
-    // Draw the background (country outlines; hint: use #map)
-    // Make sure and add gridlines to the map
+    var map = d3.select("#map")
+        .selectAll("path")
+        .data(topojson.feature(world, world.objects.countries).features)
+        .enter()
+        .append("path")
+        .attr("class", "countries")
+        // Assign an id to each country path to make it easier to select afterwards
+        .attr("id", function(d) {
+            return d.id;
+        })
+        // here we use the familiar d attribute again to define the path
+        .attr("d", path);
 
-    // Hint: assign an id to each country path to make it easier to select afterwards
-    // we suggest you use the variable in the data element's .id field to set the id
-
-    // Make sure and give your paths the appropriate class (see the .css selectors at
-    // the top of the provided html file)
-
-
+    // TODO: Make sure and add gridlines to the map
 }
 
 /**
