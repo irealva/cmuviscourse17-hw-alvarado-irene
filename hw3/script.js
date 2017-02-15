@@ -139,17 +139,19 @@ function updateBarChart(selectedDimension) {
         .attr("opacity", 1);
 
     var barDOM = d3.selectAll(".chart .bar");
-    barDOM.on("click", function(){
+    barDOM.on("click", function() {
         var currentClass = d3.select(this).attr("class");
 
-        if(currentClass === "bar") {
+        if (currentClass === "bar") {
             d3.select(this).attr("class", "bar highlight")
-        }
-        else {
+        } else {
             d3.select(this).attr("class", "bar")
         }
 
-        console.log(d3.select(this).node());
+        updateInfo(d3.select(this).data());
+
+        // console.log(d3.select(this).node());
+        // console.log(d3.select(this).data());
     })
 }
 
@@ -182,15 +184,33 @@ function chooseData() {
  * @param oneWorldCup the currently selected world cup
  */
 function updateInfo(oneWorldCup) {
+    // Updating the host
+    var host = oneWorldCup[0].host;
+    var hostEl = document.getElementById('host');
+    hostEl.innerHTML = host;
 
-    // ******* TODO: PART II *******
+    // Updating the winner
+    var winner = oneWorldCup[0].winner;
+    var winnerEl = document.getElementById('winner');
+    winnerEl.innerHTML = winner;
 
-    // Update the text elements in the infoBox to reflect:
-    // World Cup Title, host, winner, runner_up, and all participating teams that year
+    // Updating the silver winning team
+    var silver = oneWorldCup[0].runner_up;
+    var silverEl = document.getElementById('silver');
+    silverEl.innerHTML = silver;
 
-    // Hint: For the list of teams, you can create an list element for each team.
-    // Hint: Select the appropriate ids to update the text content.
+    // Updating the participating teams
+    var teams = oneWorldCup[0].teams_names;
+    var teamsEl = document.getElementById('teams');
 
+    var str = '<ul>';
+
+    for (var i in teams) {
+        str += '<li>' + teams[i] + '</li>';
+    }
+
+    str += '</ul>';
+    teamsEl.innerHTML = str;
 
 }
 
@@ -271,15 +291,15 @@ function updateMap(worldcupData) {
 // (nothing actually happens)
 
 //Load in json data to make map
-d3.json("data/world.json", function (error, world) {
+d3.json("data/world.json", function(error, world) {
     if (error) throw error;
     drawMap(world);
 });
 
 // Load CSV file
-d3.csv("data/fifa-world-cup.csv", function (error, csv) {
+d3.csv("data/fifa-world-cup.csv", function(error, csv) {
 
-    csv.forEach(function (d) {
+    csv.forEach(function(d) {
 
         // Convert numeric values to 'numbers'
         d.year = +d.YEAR;
