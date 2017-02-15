@@ -268,8 +268,6 @@ function updateMap(worldcupData) {
     var team_list = (worldcupData[0].TEAM_LIST).split(','); // split by comma
     var team_names = (worldcupData[0].TEAM_NAMES).split(','); // split by comma
 
-    console.log(worldcupData);
-
     // Lookup teams
     for (team of team_list) {
         d3.select('#' + team)
