@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Visualization - Homework 3</title>
+    <link rel="stylesheet" href="styles.css"/>
+    <script src="https://d3js.org/d3.v4.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/1.6.19/topojson.min.js"></script>
+</head>
+
+<body>
+
+<header>
+    <img src="assets/fifa_russia_logo.png" alt="Fifa WC Russia Logo" id="logo"/>
+    <h1>Exploring FIFA World Cup Statistics: Homework 3</h1>
+    <div>Name: YOURNAME; E-Mail: YOUREMAIL</div>
+</header>
+
+<div id="details" class="view">
+    <h2 id="edition">World Cup Title</h2>
+    <h3>Host</h3>
+    <span id="host"></span>
+    <h3>Winner</h3>
+    <span id="winner"></span>
+    <h3>Silver</h3>
+    <span id="silver"></span>
+    <h3>Teams</h3>
+    <span id="teams"></span>
+</div>
+
+<div id="bar-chart" class="view">
+    <h2 class="">Bar Chart</h2>
+    <div id="plot-selector">
+        <label>Plot:</label>
+        <select id="dataset" onchange="chooseData()">
+            <option selected value="attendance">Attendance</option>
+            <option value="teams">Teams</option>
+            <option value="matches">Matches</option>
+            <option value="goals">Goals</option>
+        </select>
+    </div>
+
+    <svg width="500" height="400" class="chart">
+    </svg>
+</div>
+
+<div id="map-view" class="view">
+    <h2>World Map</h2>
+    <svg width="400" height="30">
+        <rect class="host legend-element" x="0" y="5"></rect>
+        <text x="18" y="18">Host</text>
+        <rect class="team legend-element" x="60" y="5"></rect>
+        <text x="78" y="18">Participant</text>
+        <circle class="gold" cx="176" cy="12" r="8"></circle>
+        <text x="188" y="18">Winner</text>
+        <circle class="silver" cx="258" cy="12" r="8"></circle>
+        <text x="270" y="18">Runner-Up</text>
+    </svg>
+
+    <svg width="900" height="600">
+        <g id="map"></g>
+        <g id="points"></g>
+    </svg>
+</div>
+
+<script type="application/javascript" src="script.js"></script>
+</body>
+</html>
