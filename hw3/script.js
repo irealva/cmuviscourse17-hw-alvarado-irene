@@ -140,15 +140,13 @@ function updateBarChart(selectedDimension) {
 
     var barDOM = d3.selectAll(".chart .bar");
     barDOM.on("click", function() {
-        var currentClass = d3.select(this).attr("class");
+        d3.selectAll('.bar')
+            .attr("class", "bar");
 
-        if (currentClass === "bar") {
-            d3.select(this).attr("class", "bar highlight")
-        } else {
-            d3.select(this).attr("class", "bar")
-        }
+        d3.select(this).attr("class", "bar highlight");
 
         updateInfo(d3.select(this).data());
+        updateMap(d3.select(this).data());
 
         // console.log(d3.select(this).node());
         // console.log(d3.select(this).data());
@@ -173,7 +171,6 @@ var selection = document.getElementById('dataset');
  *  goals, matches, attendance and teams.
  */
 function chooseData() {
-
     currentSelection = selection.options[selection.selectedIndex].value;
     updateBarChart(currentSelection);
 }
@@ -250,14 +247,12 @@ function drawMap(world) {
  */
 function clearMap() {
 
-    // ******* TODO: PART IV*******
-    //Clear the map of any colors/markers; You can do this with inline styling or by
-    //defining a class style in styles.css
+    var map = d3.select("#map")
+        .selectAll("path")
+        .attr("class", "countries")
 
-    //Hint: If you followed our suggestion of using classes to style
-    //the colors and markers for hosts/teams/winners, you can use
-    //d3 selection and .classed to set these classes on and off here.
-
+    // Remove the circles for runner up and winner
+    d3.select('#map').selectAll('circle').remove();
 }
 
 
@@ -270,23 +265,49 @@ function updateMap(worldcupData) {
     //Clear any previous selections;
     clearMap();
 
-    // ******* TODO: PART IV *******
+    var team_list = (worldcupData[0].TEAM_LIST).split(','); // split by comma
+    var team_names = (worldcupData[0].TEAM_NAMES).split(','); // split by comma
 
-    // Add a marker for the winner and runner up to the map.
+    console.log(worldcupData);
 
-    //Hint: remember we have a conveniently labeled class called .winner
-    // as well as a .silver. These have styling attributes for the two
-    //markers.
+    // Lookup teams
+    for (team of team_list) {
+        d3.select('#' + team)
+            .attr("class", "team")
+    }
 
+    // Draw the host country after the full list so class name gets overwritten
+    var host = worldcupData[0].host_country_code;
+    d3.select('#' + host)
+        .attr("class", "host");
 
-    //Select the host country and change it's color accordingly.
+    projection = d3.geoConicConformal().scale(150).translate([400, 350]);
 
-    //Iterate through all participating teams and change their color as well.
+    // Lookup runner up
+    var run_lon = worldcupData[0].ru_pos[0];
+    var run_lat = worldcupData[0].ru_pos[1];
 
-    //We strongly suggest using classes to style the selected countries.
+    d3.select('#map')
+        .append("circle")
+        .attr("cx", projection([run_lon, run_lat])[0])
+        .attr("cy", projection([run_lon, run_lat])[1])
+        .attr("r", 10)
+        .style("fill", "gray")
+        .style("stroke", "black")
+        .style("opacity", 1);
 
+    // Lookup winner
+    var win_lon = worldcupData[0].win_pos[0];
+    var win_lat = worldcupData[0].win_pos[1];
 
-
+    d3.select('#map')
+        .append("circle")
+        .attr("cx", projection([win_lon, win_lat])[0])
+        .attr("cy", projection([win_lon, win_lat])[1])
+        .attr("r", 10)
+        .style("fill", "yellow")
+        .style("stroke", "black")
+        .style("opacity", 1);
 }
 
 /* DATA LOADING */
