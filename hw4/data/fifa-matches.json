@@ -1,0 +1,1953 @@
+[{
+    "key": "Brazil",
+    "value": {
+        "Goals Made": 11,
+        "Goals Conceded": 14,
+        "Delta Goals": -3,
+        "Wins": 4,
+        "Losses": 2,
+        "Result": {"label": "Third Place", "ranking": 5},
+        "TotalGames": 7,
+        "games": [{
+            "key": "Netherlands",
+            "value": {
+                "Goals Made": "0",
+                "Goals Conceded": "3",
+                "Delta Goals": [],
+                "Wins": [],
+                "Losses": [],
+                "Result": {"label": "Third Place", "ranking": 5},
+                "type": "game",
+                "Opponent": "Brazil"
+            }
+        }, {
+            "key": "Germany",
+            "value": {
+                "Goals Made": "1",
+                "Goals Conceded": "7",
+                "Delta Goals": [],
+                "Wins": [],
+                "Losses": [],
+                "Result": {"label": "Semi Finals", "ranking": 3},
+                "type": "game",
+                "Opponent": "Brazil"
+            }
+        }, {
+            "key": "Colombia",
+            "value": {
+                "Goals Made": "2",
+                "Goals Conceded": "1",
+                "Delta Goals": [],
+                "Wins": [],
+                "Losses": [],
+                "Result": {"label": "Quarter Finals", "ranking": 2},
+                "type": "game",
+                "Opponent": "Brazil"
+            }
+        }, {
+            "key": "Chile",
+            "value": {
+                "Goals Made": "1",
+                "Goals Conceded": "1",
+                "Delta Goals": [],
+                "Wins": [],
+                "Losses": [],
+                "Result": {"label": "Round of Sixteen", "ranking": 1},
+                "type": "game",
+                "Opponent": "Brazil"
+            }
+        }, {
+            "key": "Croatia",
+            "value": {
+                "Goals Made": "3",
+                "Goals Conceded": "1",
+                "Delta Goals": [],
+                "Wins": [],
+                "Losses": [],
+                "Result": {"label": "Group", "ranking": 0},
+                "type": "game",
+                "Opponent": "Brazil"
+            }
+        }, {
+            "key": "Mexico",
+            "value": {
+                "Goals Made": "0",
+                "Goals Conceded": "0",
+                "Delta Goals": [],
+                "Wins": [],
+                "Losses": [],
+                "Result": {"label": "Group", "ranking": 0},
+                "type": "game",
+                "Opponent": "Brazil"
+            }
+        }, {
+            "key": "Cameroon",
+            "value": {
+                "Goals Made": "4",
+                "Goals Conceded": "1",
+                "Delta Goals": [],
+                "Wins": [],
+                "Losses": [],
+                "Result": {"label": "Group", "ranking": 0},
+                "type": "game",
+                "Opponent": "Brazil"
+            }
+        }],
+        "type": "aggregate"
+    }
+}, {
+    "key": "Germany",
+    "value": {
+        "Goals Made": 18,
+        "Goals Conceded": 4,
+        "Delta Goals": 14,
+        "Wins": 6,
+        "Losses": 0,
+        "Result": {"label": "Winner", "ranking": 7},
+        "TotalGames": 7,
+        "games": [{
+            "key": "Argentina",
+            "value": {
+                "Goals Made": "1",
+                "Goals Conceded": "0",
+                "Delta Goals": [],
+                "Wins": [],
+                "Losses": [],
+                "Result": {"label": "Winner", "ranking": 7},
+                "type": "game",
+                "Opponent": "Germany"
+            }
+        }, {
+            "key": "Brazil",
+            "value": {
+                "Goals Made": "7",
+                "Goals Conceded": "1",
+                "Delta Goals": [],
+                "Wins": [],
+                "Losses": [],
+                "Result": {"label": "Semi Finals", "ranking": 3},
+                "type": "game",
+                "Opponent": "Germany"
+            }
+        }, {
+            "key": "France",
+            "value": {
+                "Goals Made": "1",
+                "Goals Conceded": "0",
+                "Delta Goals": [],
+                "Wins": [],
+                "Losses": [],
+                "Result": {"label": "Quarter Finals", "ranking": 2},
+                "type": "game",
+                "Opponent": "Germany"
+            }
+        }, {
+            "key": "Algeria",
+            "value": {
+                "Goals Made": "2",
+                "Goals Conceded": "1",
+                "Delta Goals": [],
+                "Wins": [],
+                "Losses": [],
+                "Result": {"label": "Round of Sixteen", "ranking": 1},
+                "type": "game",
+                "Opponent": "Germany"
+            }
+        }, {
+            "key": "Portugal",
+            "value": {
+                "Goals Made": "4",
+                "Goals Conceded": "0",
+                "Delta Goals": [],
+                "Wins": [],
+                "Losses": [],
+                "Result": {"label": "Group", "ranking": 0},
+                "type": "game",
+                "Opponent": "Germany"
+            }
+        }, {
+            "key": "Ghana",
+            "value": {
+                "Goals Made": "2",
+                "Goals Conceded": "2",
+                "Delta Goals": [],
+                "Wins": [],
+                "Losses": [],
+                "Result": {"label": "Group", "ranking": 0},
+                "type": "game",
+                "Opponent": "Germany"
+            }
+        }, {
+            "key": "UnitedStates",
+            "value": {
+                "Goals Made": "1",
+                "Goals Conceded": "0",
+                "Delta Goals": [],
+                "Wins": [],
+                "Losses": [],
+                "Result": {"label": "Group", "ranking": 0},
+                "type": "game",
+                "Opponent": "Germany"
+            }
+        }],
+        "type": "aggregate"
+    }
+}, {
+    "key": "Argentina",
+    "value": {
+        "Goals Made": 8,
+        "Goals Conceded": 4,
+        "Delta Goals": 4,
+        "Wins": 6,
+        "Losses": 1,
+        "Result": {"label": "Runner-Up", "ranking": 6},
+        "TotalGames": 7,
+        "games": [{
+            "key": "Germany",
+            "value": {
+                "Goals Made": "0",
+                "Goals Conceded": "1",
+                "Delta Goals": [],
+                "Wins": [],
+                "Losses": [],
+                "Result": {"label": "Runner-Up", "ranking": 6},
+                "type": "game",
+                "Opponent": "Argentina"
+            }
+        }, {
+            "key": "Netherlands",
+            "value": {
+                "Goals Made": "0",
+                "Goals Conceded": "0",
+                "Delta Goals": [],
+                "Wins": [],
+                "Losses": [],
+                "Result": {"label": "Semi Finals", "ranking": 3},
+                "type": "game",
+                "Opponent": "Argentina"
+            }
+        }, {
+            "key": "Belgium",
+            "value": {
+                "Goals Made": "1",
+                "Goals Conceded": "0",
+                "Delta Goals": [],
+                "Wins": [],
+                "Losses": [],
+                "Result": {"label": "Quarter Finals", "ranking": 2},
+                "type": "game",
+                "Opponent": "Argentina"
+            }
+        }, {
+            "key": "Switzerland",
+            "value": {
+                "Goals Made": "1",
+                "Goals Conceded": "0",
+                "Delta Goals": [],
+                "Wins": [],
+                "Losses": [],
+                "Result": {"label": "Round of Sixteen", "ranking": 1},
+                "type": "game",
+                "Opponent": "Argentina"
+            }
+        }, {
+            "key": "Bosnia",
+            "value": {
+                "Goals Made": "2",
+                "Goals Conceded": "1",
+                "Delta Goals": [],
+                "Wins": [],
+                "Losses": [],
+                "Result": {"label": "Group", "ranking": 0},
+                "type": "game",
+                "Opponent": "Argentina"
+            }
+        }, {
+            "key": "Iran",
+            "value": {
+                "Goals Made": "1",
+                "Goals Conceded": "0",
+                "Delta Goals": [],
+                "Wins": [],
+                "Losses": [],
+                "Result": {"label": "Group", "ranking": 0},
+                "type": "game",
+                "Opponent": "Argentina"
+            }
+        }, {
+            "key": "Nigeria",
+            "value": {
+                "Goals Made": "3",
+                "Goals Conceded": "2",
+                "Delta Goals": [],
+                "Wins": [],
+                "Losses": [],
+                "Result": {"label": "Group", "ranking": 0},
+                "type": "game",
+                "Opponent": "Argentina"
+            }
+        }],
+        "type": "aggregate"
+    }
+}, {
+    "key": "Netherlands",
+    "value": {
+        "Goals Made": 15,
+        "Goals Conceded": 4,
+        "Delta Goals": 11,
+        "Wins": 6,
+        "Losses": 1,
+        "Result": {"label": "Fourth Place", "ranking": 4},
+        "TotalGames": 7,
+        "games": [{
+            "key": "Brazil",
+            "value": {
+                "Goals Made": "3",
+                "Goals Conceded": "0",
+                "Delta Goals": [],
+                "Wins": [],
+                "Losses": [],
+                "Result": {"label": "Fourth Place", "ranking": 4},
+                "type": "game",
+                "Opponent": "Netherlands"
+            }
+        }, {
+            "key": "Argentina",
+            "value": {
+                "Goals Made": "0",
+                "Goals Conceded": "0",
+                "Delta Goals": [],
+                "Wins": [],
+                "Losses": [],
+                "Result": {"label": "Semi Finals", "ranking": 3},
+                "type": "game",
+                "Opponent": "Netherlands"
+            }
+        }, {
+            "key": "CostaRica",
+            "value": {
+                "Goals Made": "0",
+                "Goals Conceded": "0",
+                "Delta Goals": [],
+                "Wins": [],
+                "Losses": [],
+                "Result": {"label": "Quarter Finals", "ranking": 2},
+                "type": "game",
+                "Opponent": "Netherlands"
+            }
+        }, {
+            "key": "Mexico",
+            "value": {
+                "Goals Made": "2",
+                "Goals Conceded": "1",
+                "Delta Goals": [],
+                "Wins": [],
+                "Losses": [],
+                "Result": {"label": "Round of Sixteen", "ranking": 1},
+                "type": "game",
+                "Opponent": "Netherlands"
+            }
+        }, {
+            "key": "Chile",
+            "value": {
+                "Goals Made": "2",
+                "Goals Conceded": "0",
+                "Delta Goals": [],
+                "Wins": [],
+                "Losses": [],
+                "Result": {"label": "Group", "ranking": 0},
+                "type": "game",
+                "Opponent": "Netherlands"
+            }
+        }, {
+            "key": "Spain",
+            "value": {
+                "Goals Made": "5",
+                "Goals Conceded": "1",
+                "Delta Goals": [],
+                "Wins": [],
+                "Losses": [],
+                "Result": {"label": "Group", "ranking": 0},
+                "type": "game",
+                "Opponent": "Netherlands"
+            }
+        }, {
+            "key": "Australia",
+            "value": {
+                "Goals Made": "3",
+                "Goals Conceded": "2",
+                "Delta Goals": [],
+                "Wins": [],
+                "Losses": [],
+                "Result": {"label": "Group", "ranking": 0},
+                "type": "game",
+                "Opponent": "Netherlands"
+            }
+        }],
+        "type": "aggregate"
+    }
+}, {
+    "key": "France",
+    "value": {
+        "Goals Made": 10,
+        "Goals Conceded": 3,
+        "Delta Goals": 7,
+        "Wins": 3,
+        "Losses": 1,
+        "Result": {"label": "Quarter Finals", "ranking": 2},
+        "TotalGames": 5,
+        "games": [{
+            "key": "Germany",
+            "value": {
+                "Goals Made": "0",
+                "Goals Conceded": "1",
+                "Delta Goals": [],
+                "Wins": [],
+                "Losses": [],
+                "Result": {"label": "Quarter Finals", "ranking": 2},
+                "type": "game",
+                "Opponent": "France"
+            }
+        }, {
+            "key": "Nigeria",
+            "value": {
+                "Goals Made": "2",
+                "Goals Conceded": "0",
+                "Delta Goals": [],
+                "Wins": [],
+                "Losses": [],
+                "Result": {"label": "Round of Sixteen", "ranking": 1},
+                "type": "game",
+                "Opponent": "France"
+            }
+        }, {
+            "key": "Honduras",
+            "value": {
+                "Goals Made": "3",
+                "Goals Conceded": "0",
+                "Delta Goals": [],
+                "Wins": [],
+                "Losses": [],
+                "Result": {"label": "Group", "ranking": 0},
+                "type": "game",
+                "Opponent": "France"
+            }
+        }, {
+            "key": "Switzerland",
+            "value": {
+                "Goals Made": "5",
+                "Goals Conceded": "2",
+                "Delta Goals": [],
+                "Wins": [],
+                "Losses": [],
+                "Result": {"label": "Group", "ranking": 0},
+                "type": "game",
+                "Opponent": "France"
+            }
+        }, {
+            "key": "Ecuador",
+            "value": {
+                "Goals Made": "0",
+                "Goals Conceded": "0",
+                "Delta Goals": [],
+                "Wins": [],
+                "Losses": [],
+                "Result": {"label": "Group", "ranking": 0},
+                "type": "game",
+                "Opponent": "France"
+            }
+        }],
+        "type": "aggregate"
+    }
+}, {
+    "key": "CostaRica",
+    "value": {
+        "Goals Made": 5,
+        "Goals Conceded": 2,
+        "Delta Goals": 3,
+        "Wins": 3,
+        "Losses": 1,
+        "Result": {"label": "Quarter Finals", "ranking": 2},
+        "TotalGames": 5,
+        "games": [{
+            "key": "Netherlands",
+            "value": {
+                "Goals Made": "0",
+                "Goals Conceded": "0",
+                "Delta Goals": [],
+                "Wins": [],
+                "Losses": [],
+                "Result": {"label": "Quarter Finals", "ranking": 2},
+                "type": "game",
+                "Opponent": "CostaRica"
+            }
+        }, {
+            "key": "Greece",
+            "value": {
+                "Goals Made": "1",
+                "Goals Conceded": "1",
+                "Delta Goals": [],
+                "Wins": [],
+                "Losses": [],
+                "Result": {"label": "Round of Sixteen", "ranking": 1},
+                "type": "game",
+                "Opponent": "CostaRica"
+            }
+        }, {
+            "key": "England",
+            "value": {
+                "Goals Made": "0",
+                "Goals Conceded": "0",
+                "Delta Goals": [],
+                "Wins": [],
+                "Losses": [],
+                "Result": {"label": "Group", "ranking": 0},
+                "type": "game",
+                "Opponent": "CostaRica"
+            }
+        }, {
+            "key": "Uruguay",
+            "value": {
+                "Goals Made": "3",
+                "Goals Conceded": "1",
+                "Delta Goals": [],
+                "Wins": [],
+                "Losses": [],
+                "Result": {"label": "Group", "ranking": 0},
+                "type": "game",
+                "Opponent": "CostaRica"
+            }
+        }, {
+            "key": "Italy",
+            "value": {
+                "Goals Made": "1",
+                "Goals Conceded": "0",
+                "Delta Goals": [],
+                "Wins": [],
+                "Losses": [],
+                "Result": {"label": "Group", "ranking": 0},
+                "type": "game",
+                "Opponent": "CostaRica"
+            }
+        }],
+        "type": "aggregate"
+    }
+}, {
+    "key": "Belgium",
+    "value": {
+        "Goals Made": 6,
+        "Goals Conceded": 3,
+        "Delta Goals": 3,
+        "Wins": 4,
+        "Losses": 1,
+        "Result": {"label": "Quarter Finals", "ranking": 2},
+        "TotalGames": 5,
+        "games": [{
+            "key": "Argentina",
+            "value": {
+                "Goals Made": "0",
+                "Goals Conceded": "1",
+                "Delta Goals": [],
+                "Wins": [],
+                "Losses": [],
+                "Result": {"label": "Quarter Finals", "ranking": 2},
+                "type": "game",
+                "Opponent": "Belgium"
+            }
+        }, {
+            "key": "UnitedStates",
+            "value": {
+                "Goals Made": "2",
+                "Goals Conceded": "1",
+                "Delta Goals": [],
+                "Wins": [],
+                "Losses": [],
+                "Result": {"label": "Round of Sixteen", "ranking": 1},
+                "type": "game",
+                "Opponent": "Belgium"
+            }
+        }, {
+            "key": "Algeria",
+            "value": {
+                "Goals Made": "2",
+                "Goals Conceded": "1",
+                "Delta Goals": [],
+                "Wins": [],
+                "Losses": [],
+                "Result": {"label": "Group", "ranking": 0},
+                "type": "game",
+                "Opponent": "Belgium"
+            }
+        }, {
+            "key": "Russia",
+            "value": {
+                "Goals Made": "1",
+                "Goals Conceded": "0",
+                "Delta Goals": [],
+                "Wins": [],
+                "Losses": [],
+                "Result": {"label": "Group", "ranking": 0},
+                "type": "game",
+                "Opponent": "Belgium"
+            }
+        }, {
+            "key": "Korea",
+            "value": {
+                "Goals Made": "1",
+                "Goals Conceded": "0",
+                "Delta Goals": [],
+                "Wins": [],
+                "Losses": [],
+                "Result": {"label": "Group", "ranking": 0},
+                "type": "game",
+                "Opponent": "Belgium"
+            }
+        }],
+        "type": "aggregate"
+    }
+}, {
+    "key": "Chile",
+    "value": {
+        "Goals Made": 6,
+        "Goals Conceded": 4,
+        "Delta Goals": 2,
+        "Wins": 2,
+        "Losses": 2,
+        "Result": {"label": "Round of Sixteen", "ranking": 1},
+        "TotalGames": 4,
+        "games": [{
+            "key": "Brazil",
+            "value": {
+                "Goals Made": "1",
+                "Goals Conceded": "1",
+                "Delta Goals": [],
+                "Wins": [],
+                "Losses": [],
+                "Result": {"label": "Round of Sixteen", "ranking": 1},
+                "type": "game",
+                "Opponent": "Chile"
+            }
+        }, {
+            "key": "Australia",
+            "value": {
+                "Goals Made": "3",
+                "Goals Conceded": "1",
+                "Delta Goals": [],
+                "Wins": [],
+                "Losses": [],
+                "Result": {"label": "Group", "ranking": 0},
+                "type": "game",
+                "Opponent": "Chile"
+            }
+        }, {
+            "key": "Spain",
+            "value": {
+                "Goals Made": "2",
+                "Goals Conceded": "0",
+                "Delta Goals": [],
+                "Wins": [],
+                "Losses": [],
+                "Result": {"label": "Group", "ranking": 0},
+                "type": "game",
+                "Opponent": "Chile"
+            }
+        }, {
+            "key": "Netherlands",
+            "value": {
+                "Goals Made": "0",
+                "Goals Conceded": "2",
+                "Delta Goals": [],
+                "Wins": [],
+                "Losses": [],
+                "Result": {"label": "Group", "ranking": 0},
+                "type": "game",
+                "Opponent": "Chile"
+            }
+        }],
+        "type": "aggregate"
+    }
+}, {
+    "key": "Uruguay",
+    "value": {
+        "Goals Made": 4,
+        "Goals Conceded": 6,
+        "Delta Goals": -2,
+        "Wins": 2,
+        "Losses": 2,
+        "Result": {"label": "Round of Sixteen", "ranking": 1},
+        "TotalGames": 4,
+        "games": [{
+            "key": "Colombia",
+            "value": {
+                "Goals Made": "0",
+                "Goals Conceded": "2",
+                "Delta Goals": [],
+                "Wins": [],
+                "Losses": [],
+                "Result": {"label": "Round of Sixteen", "ranking": 1},
+                "type": "game",
+                "Opponent": "Uruguay"
+            }
+        }, {
+            "key": "CostaRica",
+            "value": {
+                "Goals Made": "1",
+                "Goals Conceded": "3",
+                "Delta Goals": [],
+                "Wins": [],
+                "Losses": [],
+                "Result": {"label": "Group", "ranking": 0},
+                "type": "game",
+                "Opponent": "Uruguay"
+            }
+        }, {
+            "key": "England",
+            "value": {
+                "Goals Made": "2",
+                "Goals Conceded": "1",
+                "Delta Goals": [],
+                "Wins": [],
+                "Losses": [],
+                "Result": {"label": "Group", "ranking": 0},
+                "type": "game",
+                "Opponent": "Uruguay"
+            }
+        }, {
+            "key": "Italy",
+            "value": {
+                "Goals Made": "1",
+                "Goals Conceded": "0",
+                "Delta Goals": [],
+                "Wins": [],
+                "Losses": [],
+                "Result": {"label": "Group", "ranking": 0},
+                "type": "game",
+                "Opponent": "Uruguay"
+            }
+        }],
+        "type": "aggregate"
+    }
+}, {
+    "key": "Nigeria",
+    "value": {
+        "Goals Made": 3,
+        "Goals Conceded": 5,
+        "Delta Goals": -2,
+        "Wins": 1,
+        "Losses": 2,
+        "Result": {"label": "Round of Sixteen", "ranking": 1},
+        "TotalGames": 4,
+        "games": [{
+            "key": "France",
+            "value": {
+                "Goals Made": "0",
+                "Goals Conceded": "2",
+                "Delta Goals": [],
+                "Wins": [],
+                "Losses": [],
+                "Result": {"label": "Round of Sixteen", "ranking": 1},
+                "type": "game",
+                "Opponent": "Nigeria"
+            }
+        }, {
+            "key": "Bosnia",
+            "value": {
+                "Goals Made": "1",
+                "Goals Conceded": "0",
+                "Delta Goals": [],
+                "Wins": [],
+                "Losses": [],
+                "Result": {"label": "Group", "ranking": 0},
+                "type": "game",
+                "Opponent": "Nigeria"
+            }
+        }, {
+            "key": "Argentina",
+            "value": {
+                "Goals Made": "2",
+                "Goals Conceded": "3",
+                "Delta Goals": [],
+                "Wins": [],
+                "Losses": [],
+                "Result": {"label": "Group", "ranking": 0},
+                "type": "game",
+                "Opponent": "Nigeria"
+            }
+        }, {
+            "key": "Iran",
+            "value": {
+                "Goals Made": "0",
+                "Goals Conceded": "0",
+                "Delta Goals": [],
+                "Wins": [],
+                "Losses": [],
+                "Result": {"label": "Group", "ranking": 0},
+                "type": "game",
+                "Opponent": "Nigeria"
+            }
+        }],
+        "type": "aggregate"
+    }
+}, {
+    "key": "Algeria",
+    "value": {
+        "Goals Made": 7,
+        "Goals Conceded": 7,
+        "Delta Goals": 0,
+        "Wins": 1,
+        "Losses": 2,
+        "Result": {"label": "Round of Sixteen", "ranking": 1},
+        "TotalGames": 4,
+        "games": [{
+            "key": "Germany",
+            "value": {
+                "Goals Made": "1",
+                "Goals Conceded": "2",
+                "Delta Goals": [],
+                "Wins": [],
+                "Losses": [],
+                "Result": {"label": "Round of Sixteen", "ranking": 1},
+                "type": "game",
+                "Opponent": "Algeria"
+            }
+        }, {
+            "key": "Russia",
+            "value": {
+                "Goals Made": "1",
+                "Goals Conceded": "1",
+                "Delta Goals": [],
+                "Wins": [],
+                "Losses": [],
+                "Result": {"label": "Group", "ranking": 0},
+                "type": "game",
+                "Opponent": "Algeria"
+            }
+        }, {
+            "key": "Belgium",
+            "value": {
+                "Goals Made": "1",
+                "Goals Conceded": "2",
+                "Delta Goals": [],
+                "Wins": [],
+                "Losses": [],
+                "Result": {"label": "Group", "ranking": 0},
+                "type": "game",
+                "Opponent": "Algeria"
+            }
+        }, {
+            "key": "Korea",
+            "value": {
+                "Goals Made": "4",
+                "Goals Conceded": "2",
+                "Delta Goals": [],
+                "Wins": [],
+                "Losses": [],
+                "Result": {"label": "Group", "ranking": 0},
+                "type": "game",
+                "Opponent": "Algeria"
+            }
+        }],
+        "type": "aggregate"
+    }
+}, {
+    "key": "Colombia",
+    "value": {
+        "Goals Made": 12,
+        "Goals Conceded": 4,
+        "Delta Goals": 8,
+        "Wins": 4,
+        "Losses": 1,
+        "Result": {"label": "Quarter Finals", "ranking": 2},
+        "TotalGames": 5,
+        "games": [{
+            "key": "Brazil",
+            "value": {
+                "Goals Made": "1",
+                "Goals Conceded": "2",
+                "Delta Goals": [],
+                "Wins": [],
+                "Losses": [],
+                "Result": {"label": "Quarter Finals", "ranking": 2},
+                "type": "game",
+                "Opponent": "Colombia"
+            }
+        }, {
+            "key": "Uruguay",
+            "value": {
+                "Goals Made": "2",
+                "Goals Conceded": "0",
+                "Delta Goals": [],
+                "Wins": [],
+                "Losses": [],
+                "Result": {"label": "Round of Sixteen", "ranking": 1},
+                "type": "game",
+                "Opponent": "Colombia"
+            }
+        }, {
+            "key": "Greece",
+            "value": {
+                "Goals Made": "3",
+                "Goals Conceded": "0",
+                "Delta Goals": [],
+                "Wins": [],
+                "Losses": [],
+                "Result": {"label": "Group", "ranking": 0},
+                "type": "game",
+                "Opponent": "Colombia"
+            }
+        }, {
+            "key": "CotedIvoire",
+            "value": {
+                "Goals Made": "2",
+                "Goals Conceded": "1",
+                "Delta Goals": [],
+                "Wins": [],
+                "Losses": [],
+                "Result": {"label": "Group", "ranking": 0},
+                "type": "game",
+                "Opponent": "Colombia"
+            }
+        }, {
+            "key": "Japan",
+            "value": {
+                "Goals Made": "4",
+                "Goals Conceded": "1",
+                "Delta Goals": [],
+                "Wins": [],
+                "Losses": [],
+                "Result": {"label": "Group", "ranking": 0},
+                "type": "game",
+                "Opponent": "Colombia"
+            }
+        }],
+        "type": "aggregate"
+    }
+}, {
+    "key": "Mexico",
+    "value": {
+        "Goals Made": 5,
+        "Goals Conceded": 3,
+        "Delta Goals": 2,
+        "Wins": 2,
+        "Losses": 1,
+        "Result": {"label": "Round of Sixteen", "ranking": 1},
+        "TotalGames": 4,
+        "games": [{
+            "key": "Netherlands",
+            "value": {
+                "Goals Made": "1",
+                "Goals Conceded": "2",
+                "Delta Goals": [],
+                "Wins": [],
+                "Losses": [],
+                "Result": {"label": "Round of Sixteen", "ranking": 1},
+                "type": "game",
+                "Opponent": "Mexico"
+            }
+        }, {
+            "key": "Cameroon",
+            "value": {
+                "Goals Made": "1",
+                "Goals Conceded": "0",
+                "Delta Goals": [],
+                "Wins": [],
+                "Losses": [],
+                "Result": {"label": "Group", "ranking": 0},
+                "type": "game",
+                "Opponent": "Mexico"
+            }
+        }, {
+            "key": "Brazil",
+            "value": {
+                "Goals Made": "0",
+                "Goals Conceded": "0",
+                "Delta Goals": [],
+                "Wins": [],
+                "Losses": [],
+                "Result": {"label": "Group", "ranking": 0},
+                "type": "game",
+                "Opponent": "Mexico"
+            }
+        }, {
+            "key": "Croatia",
+            "value": {
+                "Goals Made": "3",
+                "Goals Conceded": "1",
+                "Delta Goals": [],
+                "Wins": [],
+                "Losses": [],
+                "Result": {"label": "Group", "ranking": 0},
+                "type": "game",
+                "Opponent": "Mexico"
+            }
+        }],
+        "type": "aggregate"
+    }
+}, {
+    "key": "Greece",
+    "value": {
+        "Goals Made": 3,
+        "Goals Conceded": 5,
+        "Delta Goals": -2,
+        "Wins": 1,
+        "Losses": 2,
+        "Result": {"label": "Round of Sixteen", "ranking": 1},
+        "TotalGames": 4,
+        "games": [{
+            "key": "CostaRica",
+            "value": {
+                "Goals Made": "1",
+                "Goals Conceded": "1",
+                "Delta Goals": [],
+                "Wins": [],
+                "Losses": [],
+                "Result": {"label": "Round of Sixteen", "ranking": 1},
+                "type": "game",
+                "Opponent": "Greece"
+            }
+        }, {
+            "key": "CotedIvoire",
+            "value": {
+                "Goals Made": "2",
+                "Goals Conceded": "1",
+                "Delta Goals": [],
+                "Wins": [],
+                "Losses": [],
+                "Result": {"label": "Group", "ranking": 0},
+                "type": "game",
+                "Opponent": "Greece"
+            }
+        }, {
+            "key": "Colombia",
+            "value": {
+                "Goals Made": "0",
+                "Goals Conceded": "3",
+                "Delta Goals": [],
+                "Wins": [],
+                "Losses": [],
+                "Result": {"label": "Group", "ranking": 0},
+                "type": "game",
+                "Opponent": "Greece"
+            }
+        }, {
+            "key": "Japan",
+            "value": {
+                "Goals Made": "0",
+                "Goals Conceded": "0",
+                "Delta Goals": [],
+                "Wins": [],
+                "Losses": [],
+                "Result": {"label": "Group", "ranking": 0},
+                "type": "game",
+                "Opponent": "Greece"
+            }
+        }],
+        "type": "aggregate"
+    }
+}, {
+    "key": "Switzerland",
+    "value": {
+        "Goals Made": 7,
+        "Goals Conceded": 7,
+        "Delta Goals": 0,
+        "Wins": 2,
+        "Losses": 2,
+        "Result": {"label": "Round of Sixteen", "ranking": 1},
+        "TotalGames": 4,
+        "games": [{
+            "key": "Argentina",
+            "value": {
+                "Goals Made": "0",
+                "Goals Conceded": "1",
+                "Delta Goals": [],
+                "Wins": [],
+                "Losses": [],
+                "Result": {"label": "Round of Sixteen", "ranking": 1},
+                "type": "game",
+                "Opponent": "Switzerland"
+            }
+        }, {
+            "key": "Ecuador",
+            "value": {
+                "Goals Made": "2",
+                "Goals Conceded": "1",
+                "Delta Goals": [],
+                "Wins": [],
+                "Losses": [],
+                "Result": {"label": "Group", "ranking": 0},
+                "type": "game",
+                "Opponent": "Switzerland"
+            }
+        }, {
+            "key": "France",
+            "value": {
+                "Goals Made": "2",
+                "Goals Conceded": "5",
+                "Delta Goals": [],
+                "Wins": [],
+                "Losses": [],
+                "Result": {"label": "Group", "ranking": 0},
+                "type": "game",
+                "Opponent": "Switzerland"
+            }
+        }, {
+            "key": "Honduras",
+            "value": {
+                "Goals Made": "3",
+                "Goals Conceded": "0",
+                "Delta Goals": [],
+                "Wins": [],
+                "Losses": [],
+                "Result": {"label": "Group", "ranking": 0},
+                "type": "game",
+                "Opponent": "Switzerland"
+            }
+        }],
+        "type": "aggregate"
+    }
+}, {
+    "key": "UnitedStates",
+    "value": {
+        "Goals Made": 5,
+        "Goals Conceded": 6,
+        "Delta Goals": -1,
+        "Wins": 1,
+        "Losses": 2,
+        "Result": {"label": "Round of Sixteen", "ranking": 1},
+        "TotalGames": 4,
+        "games": [{
+            "key": "Belgium",
+            "value": {
+                "Goals Made": "1",
+                "Goals Conceded": "2",
+                "Delta Goals": [],
+                "Wins": [],
+                "Losses": [],
+                "Result": {"label": "Round of Sixteen", "ranking": 1},
+                "type": "game",
+                "Opponent": "UnitedStates"
+            }
+        }, {
+            "key": "Portugal",
+            "value": {
+                "Goals Made": "2",
+                "Goals Conceded": "2",
+                "Delta Goals": [],
+                "Wins": [],
+                "Losses": [],
+                "Result": {"label": "Group", "ranking": 0},
+                "type": "game",
+                "Opponent": "UnitedStates"
+            }
+        }, {
+            "key": "Germany",
+            "value": {
+                "Goals Made": "0",
+                "Goals Conceded": "1",
+                "Delta Goals": [],
+                "Wins": [],
+                "Losses": [],
+                "Result": {"label": "Group", "ranking": 0},
+                "type": "game",
+                "Opponent": "UnitedStates"
+            }
+        }, {
+            "key": "Ghana",
+            "value": {
+                "Goals Made": "2",
+                "Goals Conceded": "1",
+                "Delta Goals": [],
+                "Wins": [],
+                "Losses": [],
+                "Result": {"label": "Group", "ranking": 0},
+                "type": "game",
+                "Opponent": "UnitedStates"
+            }
+        }],
+        "type": "aggregate"
+    }
+}, {
+    "key": "Spain",
+    "value": {
+        "Goals Made": 4,
+        "Goals Conceded": 7,
+        "Delta Goals": -3,
+        "Wins": 1,
+        "Losses": 2,
+        "Result": {"label": "Group", "ranking": 0},
+        "TotalGames": 3,
+        "games": [{
+            "key": "Netherlands",
+            "value": {
+                "Goals Made": "1",
+                "Goals Conceded": "5",
+                "Delta Goals": [],
+                "Wins": [],
+                "Losses": [],
+                "Result": {"label": "Group", "ranking": 0},
+                "type": "game",
+                "Opponent": "Spain"
+            }
+        }, {
+            "key": "Chile",
+            "value": {
+                "Goals Made": "0",
+                "Goals Conceded": "2",
+                "Delta Goals": [],
+                "Wins": [],
+                "Losses": [],
+                "Result": {"label": "Group", "ranking": 0},
+                "type": "game",
+                "Opponent": "Spain"
+            }
+        }, {
+            "key": "Australia",
+            "value": {
+                "Goals Made": "3",
+                "Goals Conceded": "0",
+                "Delta Goals": [],
+                "Wins": [],
+                "Losses": [],
+                "Result": {"label": "Group", "ranking": 0},
+                "type": "game",
+                "Opponent": "Spain"
+            }
+        }],
+        "type": "aggregate"
+    }
+}, {
+    "key": "England",
+    "value": {
+        "Goals Made": 2,
+        "Goals Conceded": 4,
+        "Delta Goals": -2,
+        "Wins": 0,
+        "Losses": 2,
+        "Result": {"label": "Group", "ranking": 0},
+        "TotalGames": 3,
+        "games": [{
+            "key": "Italy",
+            "value": {
+                "Goals Made": "1",
+                "Goals Conceded": "2",
+                "Delta Goals": [],
+                "Wins": [],
+                "Losses": [],
+                "Result": {"label": "Group", "ranking": 0},
+                "type": "game",
+                "Opponent": "England"
+            }
+        }, {
+            "key": "Uruguay",
+            "value": {
+                "Goals Made": "1",
+                "Goals Conceded": "2",
+                "Delta Goals": [],
+                "Wins": [],
+                "Losses": [],
+                "Result": {"label": "Group", "ranking": 0},
+                "type": "game",
+                "Opponent": "England"
+            }
+        }, {
+            "key": "CostaRica",
+            "value": {
+                "Goals Made": "0",
+                "Goals Conceded": "0",
+                "Delta Goals": [],
+                "Wins": [],
+                "Losses": [],
+                "Result": {"label": "Group", "ranking": 0},
+                "type": "game",
+                "Opponent": "England"
+            }
+        }],
+        "type": "aggregate"
+    }
+}, {
+    "key": "CotedIvoire",
+    "value": {
+        "Goals Made": 4,
+        "Goals Conceded": 5,
+        "Delta Goals": -1,
+        "Wins": 1,
+        "Losses": 2,
+        "Result": {"label": "Group", "ranking": 0},
+        "TotalGames": 3,
+        "games": [{
+            "key": "Japan",
+            "value": {
+                "Goals Made": "2",
+                "Goals Conceded": "1",
+                "Delta Goals": [],
+                "Wins": [],
+                "Losses": [],
+                "Result": {"label": "Group", "ranking": 0},
+                "type": "game",
+                "Opponent": "CotedIvoire"
+            }
+        }, {
+            "key": "Colombia",
+            "value": {
+                "Goals Made": "1",
+                "Goals Conceded": "2",
+                "Delta Goals": [],
+                "Wins": [],
+                "Losses": [],
+                "Result": {"label": "Group", "ranking": 0},
+                "type": "game",
+                "Opponent": "CotedIvoire"
+            }
+        }, {
+            "key": "Greece",
+            "value": {
+                "Goals Made": "1",
+                "Goals Conceded": "2",
+                "Delta Goals": [],
+                "Wins": [],
+                "Losses": [],
+                "Result": {"label": "Group", "ranking": 0},
+                "type": "game",
+                "Opponent": "CotedIvoire"
+            }
+        }],
+        "type": "aggregate"
+    }
+}, {
+    "key": "Iran",
+    "value": {
+        "Goals Made": 1,
+        "Goals Conceded": 4,
+        "Delta Goals": -3,
+        "Wins": 0,
+        "Losses": 2,
+        "Result": {"label": "Group", "ranking": 0},
+        "TotalGames": 3,
+        "games": [{
+            "key": "Nigeria",
+            "value": {
+                "Goals Made": "0",
+                "Goals Conceded": "0",
+                "Delta Goals": [],
+                "Wins": [],
+                "Losses": [],
+                "Result": {"label": "Group", "ranking": 0},
+                "type": "game",
+                "Opponent": "Iran"
+            }
+        }, {
+            "key": "Argentina",
+            "value": {
+                "Goals Made": "0",
+                "Goals Conceded": "1",
+                "Delta Goals": [],
+                "Wins": [],
+                "Losses": [],
+                "Result": {"label": "Group", "ranking": 0},
+                "type": "game",
+                "Opponent": "Iran"
+            }
+        }, {
+            "key": "Bosnia",
+            "value": {
+                "Goals Made": "1",
+                "Goals Conceded": "3",
+                "Delta Goals": [],
+                "Wins": [],
+                "Losses": [],
+                "Result": {"label": "Group", "ranking": 0},
+                "type": "game",
+                "Opponent": "Iran"
+            }
+        }],
+        "type": "aggregate"
+    }
+}, {
+    "key": "Ghana",
+    "value": {
+        "Goals Made": 4,
+        "Goals Conceded": 6,
+        "Delta Goals": -2,
+        "Wins": 0,
+        "Losses": 2,
+        "Result": {"label": "Group", "ranking": 0},
+        "TotalGames": 3,
+        "games": [{
+            "key": "UnitedStates",
+            "value": {
+                "Goals Made": "1",
+                "Goals Conceded": "2",
+                "Delta Goals": [],
+                "Wins": [],
+                "Losses": [],
+                "Result": {"label": "Group", "ranking": 0},
+                "type": "game",
+                "Opponent": "Ghana"
+            }
+        }, {
+            "key": "Germany",
+            "value": {
+                "Goals Made": "2",
+                "Goals Conceded": "2",
+                "Delta Goals": [],
+                "Wins": [],
+                "Losses": [],
+                "Result": {"label": "Group", "ranking": 0},
+                "type": "game",
+                "Opponent": "Ghana"
+            }
+        }, {
+            "key": "Portugal",
+            "value": {
+                "Goals Made": "1",
+                "Goals Conceded": "2",
+                "Delta Goals": [],
+                "Wins": [],
+                "Losses": [],
+                "Result": {"label": "Group", "ranking": 0},
+                "type": "game",
+                "Opponent": "Ghana"
+            }
+        }],
+        "type": "aggregate"
+    }
+}, {
+    "key": "Russia",
+    "value": {
+        "Goals Made": 2,
+        "Goals Conceded": 3,
+        "Delta Goals": -1,
+        "Wins": 0,
+        "Losses": 1,
+        "Result": {"label": "Group", "ranking": 0},
+        "TotalGames": 3,
+        "games": [{
+            "key": "Korea",
+            "value": {
+                "Goals Made": "1",
+                "Goals Conceded": "1",
+                "Delta Goals": [],
+                "Wins": [],
+                "Losses": [],
+                "Result": {"label": "Group", "ranking": 0},
+                "type": "game",
+                "Opponent": "Russia"
+            }
+        }, {
+            "key": "Belgium",
+            "value": {
+                "Goals Made": "0",
+                "Goals Conceded": "1",
+                "Delta Goals": [],
+                "Wins": [],
+                "Losses": [],
+                "Result": {"label": "Group", "ranking": 0},
+                "type": "game",
+                "Opponent": "Russia"
+            }
+        }, {
+            "key": "Algeria",
+            "value": {
+                "Goals Made": "1",
+                "Goals Conceded": "1",
+                "Delta Goals": [],
+                "Wins": [],
+                "Losses": [],
+                "Result": {"label": "Group", "ranking": 0},
+                "type": "game",
+                "Opponent": "Russia"
+            }
+        }],
+        "type": "aggregate"
+    }
+}, {
+    "key": "Australia",
+    "value": {
+        "Goals Made": 3,
+        "Goals Conceded": 9,
+        "Delta Goals": -6,
+        "Wins": 0,
+        "Losses": 3,
+        "Result": {"label": "Group", "ranking": 0},
+        "TotalGames": 3,
+        "games": [{
+            "key": "Netherlands",
+            "value": {
+                "Goals Made": "2",
+                "Goals Conceded": "3",
+                "Delta Goals": [],
+                "Wins": [],
+                "Losses": [],
+                "Result": {"label": "Group", "ranking": 0},
+                "type": "game",
+                "Opponent": "Australia"
+            }
+        }, {
+            "key": "Spain",
+            "value": {
+                "Goals Made": "0",
+                "Goals Conceded": "3",
+                "Delta Goals": [],
+                "Wins": [],
+                "Losses": [],
+                "Result": {"label": "Group", "ranking": 0},
+                "type": "game",
+                "Opponent": "Australia"
+            }
+        }, {
+            "key": "Chile",
+            "value": {
+                "Goals Made": "1",
+                "Goals Conceded": "3",
+                "Delta Goals": [],
+                "Wins": [],
+                "Losses": [],
+                "Result": {"label": "Group", "ranking": 0},
+                "type": "game",
+                "Opponent": "Australia"
+            }
+        }],
+        "type": "aggregate"
+    }
+}, {
+    "key": "Cameroon",
+    "value": {
+        "Goals Made": 1,
+        "Goals Conceded": 9,
+        "Delta Goals": -8,
+        "Wins": 0,
+        "Losses": 3,
+        "Result": {"label": "Group", "ranking": 0},
+        "TotalGames": 3,
+        "games": [{
+            "key": "Croatia",
+            "value": {
+                "Goals Made": "0",
+                "Goals Conceded": "4",
+                "Delta Goals": [],
+                "Wins": [],
+                "Losses": [],
+                "Result": {"label": "Group", "ranking": 0},
+                "type": "game",
+                "Opponent": "Cameroon"
+            }
+        }, {
+            "key": "Brazil",
+            "value": {
+                "Goals Made": "1",
+                "Goals Conceded": "4",
+                "Delta Goals": [],
+                "Wins": [],
+                "Losses": [],
+                "Result": {"label": "Group", "ranking": 0},
+                "type": "game",
+                "Opponent": "Cameroon"
+            }
+        }, {
+            "key": "Mexico",
+            "value": {
+                "Goals Made": "0",
+                "Goals Conceded": "1",
+                "Delta Goals": [],
+                "Wins": [],
+                "Losses": [],
+                "Result": {"label": "Group", "ranking": 0},
+                "type": "game",
+                "Opponent": "Cameroon"
+            }
+        }],
+        "type": "aggregate"
+    }
+}, {
+    "key": "Japan",
+    "value": {
+        "Goals Made": 2,
+        "Goals Conceded": 6,
+        "Delta Goals": -4,
+        "Wins": 0,
+        "Losses": 2,
+        "Result": {"label": "Group", "ranking": 0},
+        "TotalGames": 3,
+        "games": [{
+            "key": "Greece",
+            "value": {
+                "Goals Made": "0",
+                "Goals Conceded": "0",
+                "Delta Goals": [],
+                "Wins": [],
+                "Losses": [],
+                "Result": {"label": "Group", "ranking": 0},
+                "type": "game",
+                "Opponent": "Japan"
+            }
+        }, {
+            "key": "Colombia",
+            "value": {
+                "Goals Made": "1",
+                "Goals Conceded": "4",
+                "Delta Goals": [],
+                "Wins": [],
+                "Losses": [],
+                "Result": {"label": "Group", "ranking": 0},
+                "type": "game",
+                "Opponent": "Japan"
+            }
+        }, {
+            "key": "CotedIvoire",
+            "value": {
+                "Goals Made": "1",
+                "Goals Conceded": "2",
+                "Delta Goals": [],
+                "Wins": [],
+                "Losses": [],
+                "Result": {"label": "Group", "ranking": 0},
+                "type": "game",
+                "Opponent": "Japan"
+            }
+        }],
+        "type": "aggregate"
+    }
+}, {
+    "key": "Italy",
+    "value": {
+        "Goals Made": 2,
+        "Goals Conceded": 3,
+        "Delta Goals": -1,
+        "Wins": 1,
+        "Losses": 2,
+        "Result": {"label": "Group", "ranking": 0},
+        "TotalGames": 3,
+        "games": [{
+            "key": "CostaRica",
+            "value": {
+                "Goals Made": "0",
+                "Goals Conceded": "1",
+                "Delta Goals": [],
+                "Wins": [],
+                "Losses": [],
+                "Result": {"label": "Group", "ranking": 0},
+                "type": "game",
+                "Opponent": "Italy"
+            }
+        }, {
+            "key": "Uruguay",
+            "value": {
+                "Goals Made": "0",
+                "Goals Conceded": "1",
+                "Delta Goals": [],
+                "Wins": [],
+                "Losses": [],
+                "Result": {"label": "Group", "ranking": 0},
+                "type": "game",
+                "Opponent": "Italy"
+            }
+        }, {
+            "key": "England",
+            "value": {
+                "Goals Made": "2",
+                "Goals Conceded": "1",
+                "Delta Goals": [],
+                "Wins": [],
+                "Losses": [],
+                "Result": {"label": "Group", "ranking": 0},
+                "type": "game",
+                "Opponent": "Italy"
+            }
+        }],
+        "type": "aggregate"
+    }
+}, {
+    "key": "Honduras",
+    "value": {
+        "Goals Made": 1,
+        "Goals Conceded": 8,
+        "Delta Goals": -7,
+        "Wins": 0,
+        "Losses": 3,
+        "Result": {"label": "Group", "ranking": 0},
+        "TotalGames": 3,
+        "games": [{
+            "key": "Ecuador",
+            "value": {
+                "Goals Made": "1",
+                "Goals Conceded": "2",
+                "Delta Goals": [],
+                "Wins": [],
+                "Losses": [],
+                "Result": {"label": "Group", "ranking": 0},
+                "type": "game",
+                "Opponent": "Honduras"
+            }
+        }, {
+            "key": "Switzerland",
+            "value": {
+                "Goals Made": "0",
+                "Goals Conceded": "3",
+                "Delta Goals": [],
+                "Wins": [],
+                "Losses": [],
+                "Result": {"label": "Group", "ranking": 0},
+                "type": "game",
+                "Opponent": "Honduras"
+            }
+        }, {
+            "key": "France",
+            "value": {
+                "Goals Made": "0",
+                "Goals Conceded": "3",
+                "Delta Goals": [],
+                "Wins": [],
+                "Losses": [],
+                "Result": {"label": "Group", "ranking": 0},
+                "type": "game",
+                "Opponent": "Honduras"
+            }
+        }],
+        "type": "aggregate"
+    }
+}, {
+    "key": "Korea",
+    "value": {
+        "Goals Made": 3,
+        "Goals Conceded": 6,
+        "Delta Goals": -3,
+        "Wins": 0,
+        "Losses": 2,
+        "Result": {"label": "Group", "ranking": 0},
+        "TotalGames": 3,
+        "games": [{
+            "key": "Algeria",
+            "value": {
+                "Goals Made": "2",
+                "Goals Conceded": "4",
+                "Delta Goals": [],
+                "Wins": [],
+                "Losses": [],
+                "Result": {"label": "Group", "ranking": 0},
+                "type": "game",
+                "Opponent": "Korea"
+            }
+        }, {
+            "key": "Belgium",
+            "value": {
+                "Goals Made": "0",
+                "Goals Conceded": "1",
+                "Delta Goals": [],
+                "Wins": [],
+                "Losses": [],
+                "Result": {"label": "Group", "ranking": 0},
+                "type": "game",
+                "Opponent": "Korea"
+            }
+        }, {
+            "key": "Russia",
+            "value": {
+                "Goals Made": "1",
+                "Goals Conceded": "1",
+                "Delta Goals": [],
+                "Wins": [],
+                "Losses": [],
+                "Result": {"label": "Group", "ranking": 0},
+                "type": "game",
+                "Opponent": "Korea"
+            }
+        }],
+        "type": "aggregate"
+    }
+}, {
+    "key": "Croatia",
+    "value": {
+        "Goals Made": 6,
+        "Goals Conceded": 6,
+        "Delta Goals": 0,
+        "Wins": 1,
+        "Losses": 2,
+        "Result": {"label": "Group", "ranking": 0},
+        "TotalGames": 3,
+        "games": [{
+            "key": "Mexico",
+            "value": {
+                "Goals Made": "1",
+                "Goals Conceded": "3",
+                "Delta Goals": [],
+                "Wins": [],
+                "Losses": [],
+                "Result": {"label": "Group", "ranking": 0},
+                "type": "game",
+                "Opponent": "Croatia"
+            }
+        }, {
+            "key": "Brazil",
+            "value": {
+                "Goals Made": "1",
+                "Goals Conceded": "3",
+                "Delta Goals": [],
+                "Wins": [],
+                "Losses": [],
+                "Result": {"label": "Group", "ranking": 0},
+                "type": "game",
+                "Opponent": "Croatia"
+            }
+        }, {
+            "key": "Cameroon",
+            "value": {
+                "Goals Made": "4",
+                "Goals Conceded": "0",
+                "Delta Goals": [],
+                "Wins": [],
+                "Losses": [],
+                "Result": {"label": "Group", "ranking": 0},
+                "type": "game",
+                "Opponent": "Croatia"
+            }
+        }],
+        "type": "aggregate"
+    }
+}, {
+    "key": "Bosnia",
+    "value": {
+        "Goals Made": 4,
+        "Goals Conceded": 4,
+        "Delta Goals": 0,
+        "Wins": 1,
+        "Losses": 2,
+        "Result": {"label": "Group", "ranking": 0},
+        "TotalGames": 3,
+        "games": [{
+            "key": "Iran",
+            "value": {
+                "Goals Made": "3",
+                "Goals Conceded": "1",
+                "Delta Goals": [],
+                "Wins": [],
+                "Losses": [],
+                "Result": {"label": "Group", "ranking": 0},
+                "type": "game",
+                "Opponent": "Bosnia"
+            }
+        }, {
+            "key": "Argentina",
+            "value": {
+                "Goals Made": "1",
+                "Goals Conceded": "2",
+                "Delta Goals": [],
+                "Wins": [],
+                "Losses": [],
+                "Result": {"label": "Group", "ranking": 0},
+                "type": "game",
+                "Opponent": "Bosnia"
+            }
+        }, {
+            "key": "Nigeria",
+            "value": {
+                "Goals Made": "0",
+                "Goals Conceded": "1",
+                "Delta Goals": [],
+                "Wins": [],
+                "Losses": [],
+                "Result": {"label": "Group", "ranking": 0},
+                "type": "game",
+                "Opponent": "Bosnia"
+            }
+        }],
+        "type": "aggregate"
+    }
+}, {
+    "key": "Ecuador",
+    "value": {
+        "Goals Made": 3,
+        "Goals Conceded": 3,
+        "Delta Goals": 0,
+        "Wins": 1,
+        "Losses": 1,
+        "Result": {"label": "Group", "ranking": 0},
+        "TotalGames": 3,
+        "games": [{
+            "key": "France",
+            "value": {
+                "Goals Made": "0",
+                "Goals Conceded": "0",
+                "Delta Goals": [],
+                "Wins": [],
+                "Losses": [],
+                "Result": {"label": "Group", "ranking": 0},
+                "type": "game",
+                "Opponent": "Ecuador"
+            }
+        }, {
+            "key": "Switzerland",
+            "value": {
+                "Goals Made": "1",
+                "Goals Conceded": "2",
+                "Delta Goals": [],
+                "Wins": [],
+                "Losses": [],
+                "Result": {"label": "Group", "ranking": 0},
+                "type": "game",
+                "Opponent": "Ecuador"
+            }
+        }, {
+            "key": "Honduras",
+            "value": {
+                "Goals Made": "2",
+                "Goals Conceded": "1",
+                "Delta Goals": [],
+                "Wins": [],
+                "Losses": [],
+                "Result": {"label": "Group", "ranking": 0},
+                "type": "game",
+                "Opponent": "Ecuador"
+            }
+        }],
+        "type": "aggregate"
+    }
+}, {
+    "key": "Portugal",
+    "value": {
+        "Goals Made": 4,
+        "Goals Conceded": 7,
+        "Delta Goals": -3,
+        "Wins": 1,
+        "Losses": 1,
+        "Result": {"label": "Group", "ranking": 0},
+        "TotalGames": 3,
+        "games": [{
+            "key": "Ghana",
+            "value": {
+                "Goals Made": "2",
+                "Goals Conceded": "1",
+                "Delta Goals": [],
+                "Wins": [],
+                "Losses": [],
+                "Result": {"label": "Group", "ranking": 0},
+                "type": "game",
+                "Opponent": "Portugal"
+            }
+        }, {
+            "key": "Germany",
+            "value": {
+                "Goals Made": "0",
+                "Goals Conceded": "4",
+                "Delta Goals": [],
+                "Wins": [],
+                "Losses": [],
+                "Result": {"label": "Group", "ranking": 0},
+                "type": "game",
+                "Opponent": "Portugal"
+            }
+        }, {
+            "key": "UnitedStates",
+            "value": {
+                "Goals Made": "2",
+                "Goals Conceded": "2",
+                "Delta Goals": [],
+                "Wins": [],
+                "Losses": [],
+                "Result": {"label": "Group", "ranking": 0},
+                "type": "game",
+                "Opponent": "Portugal"
+            }
+        }],
+        "type": "aggregate"
+    }
+}]

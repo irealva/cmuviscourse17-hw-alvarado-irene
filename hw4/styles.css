@@ -1,0 +1,155 @@
+
+table {
+    border-collapse: collapse;
+    font: 14px sans-serif;
+    /*width: 720px;*/
+}
+
+th {
+    font-weight: normal;
+    text-align: right;
+    padding-right: 6px;
+    min-width: 125px;
+}
+
+thead td , th{
+    cursor: s-resize;
+}
+
+tbody tr:first-child td {
+    padding-top: 2px;
+}
+
+tbody th{
+    cursor:pointer;
+    font-weight: bold;
+}
+
+.aggregate{
+    color: #317f19;
+}
+
+.game{
+    color: #b1b1b1;
+}
+
+tbody td {
+    padding-right: 5px;
+    padding-left: 5px;
+    border-left: solid 1px #000;
+    color:black
+}
+
+tbody tr:hover {
+    background-color: #dbdbdb;
+}
+
+tbody tr .game {
+    background-color: #f0f0f0;
+}
+
+/*tbody tr .game:hover {*/
+    /*background-color: #dbdbdb;*/
+/*}*/
+
+.label{
+    fill: #ffffff;
+    font: 14px sans-serif;
+}
+
+@font-face {
+    font-family: 'aller';
+    src: url('assets/aller.ttf');
+}
+
+@font-face {
+    font-family:'brazil';
+    src: url('assets/brasil_cup_font.otf');
+}
+
+h1 {
+    margin-top: 0;
+    font-family: 'brazil';
+    color: #317f19;
+}
+
+h2 {
+    font-family: 'brazil';
+    color: #317f19;
+    padding-bottom: 0;
+    margin-top: 3px;
+    margin-bottom: 0;
+}
+
+h3 {
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+}
+
+* {
+    font-family: 'aller';
+}
+
+header {
+    padding: 0.5em;
+    /*clear: left;*/
+    text-align: center;
+    height: 100px;
+}
+
+#logo {
+    float: right;
+    height: 100px;
+}
+
+.goalBar{
+    opacity:0.6;
+}
+
+.goalCircle{
+    stroke-width: 3px;
+    r:5;
+}
+
+
+.node circle {
+    fill: #be2714;
+}
+
+.node text {
+    font: 14px sans-serif;
+}
+
+.winner circle {
+    fill: #364e74;
+}
+
+.loser text {
+    text-shadow: 0 1px 0 #fff, 0 -1px 0 #fff, 1px 0 0 #fff, -1px 0 0 #fff;
+}
+
+.link {
+    fill: none;
+    stroke: #555;
+    stroke-opacity: 0.4;
+    stroke-width: 2px;
+}
+
+.selected {
+    stroke: #be2714;
+    stroke-width: 4px;
+}
+
+.selectedLabel {
+    fill: #be2714;
+    font-weight: bolder;
+
+}
+
+.view {
+    width: 650px;
+    padding: 0.5em;
+    float: left;
+}
+
+
