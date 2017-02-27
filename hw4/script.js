@@ -242,6 +242,8 @@ function updateTable() {
 
     // Add ability to click on each row
     rows.on("click", updateList);
+    rows.on("mouseover", updateTree);
+    rows.on("mouseout", clearTree);
 
 }
 
@@ -299,6 +301,8 @@ function updateList(currentRow, i) {
 
 }
 
+var nodes;
+
 /**
  * Creates a node/edge structure and renders a tree layout based on the input data
  *
@@ -343,16 +347,16 @@ function createTree(treeData) {
     var tree = d3.tree()
         .size([height, width]);
 
-    var nodes = tree(root);
+    nodes = tree(root);
 
     // adds the links between the nodes
     var link = svg.selectAll(".link")
         .data(nodes.descendants().slice(1))
         .enter().append("path")
         .attr("class", "link")
-        .style("stroke", function(d) {
-            return d.data.level;
-        })
+        // .style("stroke", function(d) {
+        //     return d.data.level;
+        // })
         .attr("d", function(d) {
             return "M" + d.y + "," + d.x +
                 "C" + (d.y + d.parent.y) / 2 + "," + d.x +
@@ -366,6 +370,10 @@ function createTree(treeData) {
         .enter().append("g")
         .attr("transform", function(d) {
             return "translate(" + d.y + "," + d.x + ")";
+        })
+        .attr('data-team', function(d) {
+            // console.log(d);
+            return d.data.Team;
         });
 
     // adds the circle to the node
@@ -408,9 +416,18 @@ function createTree(treeData) {
  *
  * @param team a string specifying which team was selected in the table.
  */
-function updateTree(row) {
+function updateTree(row, i) {
+    console.log("upate tree: ");
+    console.log(row);
 
-    // ******* TODO: PART VII *******
+    var name = row.key;
+
+    var svg = d3.select('#tree');
+    var node = svg.selectAll(".node")
+        .data(nodes.descendants());
+
+    console.log(node);
+
 
 
 }
@@ -420,7 +437,6 @@ function updateTree(row) {
  */
 function clearTree() {
 
-    // ******* TODO: PART VII *******
 
 
 }
