@@ -305,22 +305,18 @@ function updateList(currentRow, i) {
  * @param treeData an array of objects that contain parent/child information.
  */
 function createTree(treeData) {
-
-    const m = [20, 120, 20, 120],
-        w = 1480 - m[1] - m[3],
-        h = 800 - m[0] - m[2],
-        i = 0,
-        rectW = 200,
-        rectH = 100;
-
-    console.log(treeData);
+    const margin = 10;
+    const width = 500 - margin;
+    const height = 900 - margin;
 
     var svg = d3.select('#tree')
-        .append('svg')
-        .attr('width', w)
-        .attr('height', h)
-        .append('svg:g')
-        .attr('transform', 'translate(0,40)');
+        .attr("transform",
+            "translate(" + margin/2 + "," + 0 + ")");;
+        // .append('svg')
+        // .attr('width', w)
+        // .attr('height', h)
+        // .append('svg:g')
+        // .attr('transform', 'translate(0,40)');
 
     var root = d3.stratify()
         .id(function(d) {
@@ -344,45 +340,13 @@ function createTree(treeData) {
         (treeData);
 
 
-
     var tree = d3.tree()
-        .size([h, h]);
+        .size([height, width]);
 
     var nodes = tree(root);
 
-    nodes.each(d => {
-        console.log(d);
-        d.y = d.depth * h / 3;
-    })
-    const node = svg.selectAll('g.node')
-        .data(nodes, d => {
-            console.log(d);
-            return d.id || (d.id = ++i);
-        });
-
-    const nodeEnter = node.enter().append('g')
-        .attr('class', 'node');
-
-    nodeEnter.append('rect')
-        .attr('width', rectW)
-        .attr('height', rectH)
-        .attr('y', -10)
-        .attr('rx', 2)
-        .attr('ry', 2)
-        .attr('stroke', 'black')
-        .attr('stroke-width', 0.9)
-        .attr('transform', d => `translate(${d.x},${d.y})`)
-        .style('fill', 'lightsteelblue');
-
-    nodeEnter.append('text')
-        .attr('x', 4)
-        .attr('y', 10)
-        .attr('dy', '.5em')
-        .text(d => d.name)
-
-    console.log(nodeEnter);
-
-    var links = svg.selectAll(".link")
+    // adds the links between the nodes
+    var link = svg.selectAll(".link")
         .data(nodes.descendants().slice(1))
         .enter().append("path")
         .attr("class", "link")
@@ -396,24 +360,46 @@ function createTree(treeData) {
                 " " + d.parent.y + "," + d.parent.x;
         });
 
-    svg.selectAll('path.link')
-        .data(links, d => {
-            console.log(d);
-            return d.id;
-        })
-        .enter().insert('svg:path', 'g')
-        .attr('class', 'link')
-        .attr('d', nodez => {
-            const oldX = nodez.source.x;
-            const oldY = nodez.source.y;
-            const newX = nodez.target.x;
-            const newY = nodez.target.y;
-            const pathing = path();
-            pathing.moveTo(oldX + rectW / 2, oldY);
-            pathing.bezierCurveTo(oldX + rectW / 2, (oldY + newY) / 2, newX + rectW / 2, (oldY + newY) / 2, newX + rectW / 2, newY);
-            return pathing;
+    // adds each node as a group
+    var node = svg.selectAll(".node")
+        .data(nodes.descendants())
+        .enter().append("g")
+        .attr("transform", function(d) {
+            return "translate(" + d.y + "," + d.x + ")";
         });
 
+    // adds the circle to the node
+    node.append("circle")
+        .attr("r", 5)
+        .style("stroke", function(d) {
+            return d.data.type;
+        })
+        .attr('class', function(d) {
+            var c = 'winner';
+
+            if (d.data.Losses == "1") {
+                c = 'loser';
+            }
+
+            return c;
+        });
+
+    // adds the text to the node
+    node.append("text")
+        .attr("dy", ".35em")
+        // .attr("x", function(d) {
+        //     console.log(d)
+        //     return d.children ?
+        //         (d.data.value + 4) * -1 : d.data.value + 4
+        // })
+        .attr("x", 10)
+        // .style("text-anchor", function(d) {
+        //     return d.children ? "end" : "start";
+        // })
+        .text(function(d) {
+            // console.log(d);
+            return d.data.Team;
+        });
 };
 
 /**

@@ -120,8 +120,12 @@ header {
     font: 14px sans-serif;
 }
 
-.winner circle {
+circle.winner {
     fill: #364e74;
+}
+
+circle.loser {
+    fill: #be2714;
 }
 
 .loser text {
@@ -151,5 +155,3 @@ header {
     padding: 0.5em;
     float: left;
 }
-
-
