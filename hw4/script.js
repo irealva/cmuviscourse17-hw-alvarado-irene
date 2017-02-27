@@ -47,21 +47,35 @@ var rank = {
     'Group': 0
 };
 
-d3.json('data/fifa-matches.json',function(error,data){
+d3.json('data/fifa-matches.json', function(error, data) {
     teamData = data;
 
     // Set games scale
     var maxGames = d3.max(teamData, function(d) {
         return d.value["TotalGames"];
     })
-    gameScale.domain([0,maxGames]);
-    aggregateColorScale.domain([0,maxGames]);
+    gameScale.domain([0, maxGames]);
+    aggregateColorScale.domain([0, maxGames]);
 
     // Set goals scale
     var maxGoals = d3.max(teamData, function(d) {
         return d.value["Delta Goals"] + d.value["Goals Conceded"];
     })
-    goalScale.domain([0,maxGoals]);
+    goalScale.domain([0, maxGoals]);
+
+    // Fix keys in the games data so that it doesn't match with another existing team
+    for (var i = 0; i < teamData.length; i++) {
+        var games = teamData[i].value.games;
+        for (var j = 0; j < games.length; j++) {
+            // Store the country game name in another variable
+            games[j].name = "x" + games[j].key;
+            // Add a unique ID to each name
+            games[j].key = teamData[i].key + "Game" + games[j].key;
+
+        }
+
+        teamData[i].value.games = games;
+    }
 
     createTable();
     updateTable();
@@ -71,10 +85,10 @@ d3.json('data/fifa-matches.json',function(error,data){
  * Loads in the tree information from fifa-tree.csv and calls createTree(csvData) to render the tree.
  *
  */
-d3.csv("data/fifa-tree.csv", function (error, csvData) {
+d3.csv("data/fifa-tree.csv", function(error, csvData) {
 
     //Create a unique "id" field for each game
-    csvData.forEach(function (d, i) {
+    csvData.forEach(function(d, i) {
         d.id = d.Team + d.Opponent + i;
     });
 
@@ -88,11 +102,13 @@ d3.csv("data/fifa-tree.csv", function (error, csvData) {
  */
 function createTable() {
     tableElements = teamData;
+
+
     // console.log(tableElements);
 
-// ******* TODO: PART II *******
+    // ******* TODO: PART II *******
 
-// ******* TODO: PART V (Extra Credit) *******
+    // ******* TODO: PART V (Extra Credit) *******
 
 }
 
@@ -108,7 +124,6 @@ function updateTable() {
     var table = d3.select('#matchTable').select('tbody');
     // console.log(table.node());
 
-
     rows = table.selectAll('tr')
         // Make sure we keep object consistency between our data and HTML Dom objects
         .data(tableElements, function(d) {
@@ -116,9 +131,15 @@ function updateTable() {
         })
         .enter().append('tr');
 
-    // Add ability to click on each row
-    rows.on("click", updateList);
+    // Remove anything that is no longer in our tableElements variable
+    table.selectAll('tr')
+        .data(tableElements, function(d) {
+            return d.key;
+        })
+        .exit().remove();
 
+
+    // rows.order();
 
     // Create a cell for each row in each column
     var cells = rows.selectAll('td')
@@ -127,7 +148,7 @@ function updateTable() {
             // console.log(row);
             var result = [];
 
-            if(row.value.type == "aggregate") {
+            if (row.value.type == "aggregate") {
                 result.push(createCell('text', row.key));
                 result.push(createCell('goals', {
                     "made": row.value["Goals Made"],
@@ -140,24 +161,25 @@ function updateTable() {
                 result.push(createCell('bar', row.value.TotalGames));
             }
 
-            if(row.value.type == "game") {
-                // console.log(row);
-                // console.log(row);
-
-                result.push(createCell('text', row.key));
-                result.push(createCell('text', "TEST"));
+            if (row.value.type == "game") {
+                result.push(createCell('text', row.name));
+                result.push(createCell('goals', {
+                    "made": row.value["Goals Made"],
+                    "lost": row.value["Goals Conceded"],
+                    "delta": (row.value["Goals Made"] - row.value["Goals Conceded"])
+                }));
                 result.push(createCell('text', row.value.Result.label));
-                result.push(createCell('text', "TEST"));
-                result.push(createCell('text', "TEST"));
-                result.push(createCell('text', "TEST"));
+                result.push(createCell('text', ""));
+                result.push(createCell('text', ""));
+                result.push(createCell('text', ""));
             }
 
             return result;
         })
         .enter()
         .append('td');
-        // .attr("width", cellWidth)
-        // .attr("height", cellHeight);
+    // .attr("width", cellWidth)
+    // .attr("height", cellHeight);
 
 
     // Get the cells that will have text
@@ -203,7 +225,7 @@ function updateTable() {
         // Inside each svg add a rect for the bar
         .append("rect")
         .attr("x", function(d) {
-            var min = Math.min(d.value.made,d.value.lost);
+            var min = Math.min(d.value.made, d.value.lost);
             return goalScale(min);
         })
         .attr("width", function(d) {
@@ -218,7 +240,10 @@ function updateTable() {
         .attr("rx", 10)
         .attr("ry", 10);
 
-};
+    // Add ability to click on each row
+    rows.on("click", updateList);
+
+}
 
 function createCell(vis, value) {
     var cell = {
@@ -234,13 +259,10 @@ function createCell(vis, value) {
  * Collapses all expanded countries, leaving only rows for aggregate values per country.
  *
  */
-function collapseList(i) {
-    console.log(tableElements);
-    console.log(i)
-
-    // ******* TODO: PART IV *******
-
-
+function collapseList(i, n) {
+    // index to start removing from array
+    var index = i + 1;
+    tableElements.splice(index, n);
 }
 
 /**
@@ -249,32 +271,26 @@ function collapseList(i) {
  */
 function updateList(currentRow, i) {
     // console.log(tableElements.length);
-    nextRow = tableElements[i+1];
-    // console.log(nextRow);
+    var index = tableElements.indexOf(currentRow);
+
+    nextRow = tableElements[index + 1];
 
     // If the currently clicked row is a team, not a game
     if (currentRow.value.type == "aggregate") {
         // If the next row is also a team, then expand on games
-        if(nextRow != undefined && nextRow.value.type == "aggregate") {
+        if (nextRow == undefined || nextRow.value.type == "aggregate") {
             var games = currentRow.value.games;
-            // console.log("GAMES TO ADD");
-            // console.log(games);
 
-            for(var j = 0 ; j < games.length ; j++) {
-                // Updating keys in the games data so that it doesn't match with another existing team
-                games[j].key = "x" + games[j].key;
-                tableElements.splice((i+1+j), 0, games[j]);
+            for (var j = 0; j < games.length; j++) {
+                tableElements.splice((index + 1 + j), 0, games[j]);
             }
             // console.log(tableElements);
         }
         // If the next row is a game, we want to collapse the row
-        if(nextRow != undefined && nextRow.value.type == "game") {
-            collapseList(i);
+        if (nextRow != undefined && nextRow.value.type == "game") {
+            collapseList(index, currentRow.value.games.length);
         }
     }
-
-    // console.log("\n\nNEW TABLE")
-    // console.log(tableElements, tableElements.length);
 
     updateTable();
 
@@ -290,10 +306,142 @@ function updateList(currentRow, i) {
  */
 function createTree(treeData) {
 
-    // ******* TODO: PART VI *******
+    const m = [20, 120, 20, 120],
+        w = 1480 - m[1] - m[3],
+        h = 800 - m[0] - m[2],
+        i = 0,
+        rectW = 200,
+        rectH = 100;
 
+    console.log(treeData);
+
+    var svg = d3.select('#tree')
+        .append('svg')
+        .attr('width', w)
+        .attr('height', h)
+        .append('svg:g')
+        .attr('transform', 'translate(0,40)');
+
+    var root = d3.stratify()
+        .id(function(d) {
+            // console.log(d);
+            return d.id;
+        })
+        .parentId(function(d) {
+            let number = parseInt(d.ParentGame);
+
+            if (d.ParentGame == "") {
+                console.log("return the first: " + d.id)
+                return "";
+            }
+            console.log("Number is: " + number);
+            let parent = treeData[d.ParentGame];
+            console.log(parent);
+            console.log(parent.id);
+            console.log("\n\n");
+            return parent.id;
+        })
+        (treeData);
+
+
+
+    var tree = d3.tree()
+        .size([h, h]);
+
+    var nodes = tree(root);
+
+    nodes.each(d => {
+        console.log(d);
+        d.y = d.depth * h / 3;
+    })
+    const node = svg.selectAll('g.node')
+        .data(nodes, d => {
+            console.log(d);
+            return d.id || (d.id = ++i);
+        });
+
+    const nodeEnter = node.enter().append('g')
+        .attr('class', 'node');
+
+    nodeEnter.append('rect')
+        .attr('width', rectW)
+        .attr('height', rectH)
+        .attr('y', -10)
+        .attr('rx', 2)
+        .attr('ry', 2)
+        .attr('stroke', 'black')
+        .attr('stroke-width', 0.9)
+        .attr('transform', d => `translate(${d.x},${d.y})`)
+        .style('fill', 'lightsteelblue');
+
+    nodeEnter.append('text')
+        .attr('x', 4)
+        .attr('y', 10)
+        .attr('dy', '.5em')
+        .text(d => d.name)
+
+    console.log(nodeEnter);
+
+    var links = svg.selectAll(".link")
+        .data(nodes.descendants().slice(1))
+        .enter().append("path")
+        .attr("class", "link")
+        .style("stroke", function(d) {
+            return d.data.level;
+        })
+        .attr("d", function(d) {
+            return "M" + d.y + "," + d.x +
+                "C" + (d.y + d.parent.y) / 2 + "," + d.x +
+                " " + (d.y + d.parent.y) / 2 + "," + d.parent.x +
+                " " + d.parent.y + "," + d.parent.x;
+        });
+
+    svg.selectAll('path.link')
+        .data(links, d => {
+            console.log(d);
+            return d.id;
+        })
+        .enter().insert('svg:path', 'g')
+        .attr('class', 'link')
+        .attr('d', nodez => {
+            const oldX = nodez.source.x;
+            const oldY = nodez.source.y;
+            const newX = nodez.target.x;
+            const newY = nodez.target.y;
+            const pathing = path();
+            pathing.moveTo(oldX + rectW / 2, oldY);
+            pathing.bezierCurveTo(oldX + rectW / 2, (oldY + newY) / 2, newX + rectW / 2, (oldY + newY) / 2, newX + rectW / 2, newY);
+            return pathing;
+        });
+
+    // var link = svg.selectAll(".link")
+    //   .data(root.descendants().slice(1))
+    // .enter().append("path")
+    //   .attr("class", "link")
+    //   .attr("d", function(d) {
+    //     return "M" + project(d.x, d.y)
+    //         + "C" + project(d.x, (d.y + d.parent.y) / 2)
+    //         + " " + project(d.parent.x, (d.y + d.parent.y) / 2)
+    //         + " " + project(d.parent.x, d.parent.y);
+    //   });
+
+    // var node = svg.selectAll(".node")
+    //   .data(root.descendants())
+    //   .enter().append("g")
+    //   .attr("class", function(d) { return "node" + (d.children ? " node--internal" : " node--leaf"); })
+    //   .attr("transform", function(d) { return "translate(" + project(d.x, d.y) + ")"; });
+    //
+    //   node.append("circle")
+    //   .attr("r", 2.5);
 
 };
+
+
+function project(x, y) {
+    var angle = (x - 90) / 180 * Math.PI,
+        radius = y;
+    return [radius * Math.cos(angle), radius * Math.sin(angle)];
+}
 
 /**
  * Updates the highlighting in the tree based on the selected team.
@@ -316,4 +464,17 @@ function clearTree() {
     // ******* TODO: PART VII *******
 
 
+}
+
+function printTable() {
+    var string = "";
+    var i = 0;
+
+    for (row of tableElements) {
+        console.log(row);
+        string = string + i + ":" + row.key + "\n";
+        i++;
+    }
+
+    console.log(string);
 }
