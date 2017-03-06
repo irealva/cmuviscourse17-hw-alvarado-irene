@@ -211,9 +211,9 @@ function updateTable() {
 
     // Get the cells that will have the bar charts
     var cellsWithGoals = cells.filter(function(d) {
-        return d.vis == 'goals';
-    })
-    // console.log(cellsWithBars);
+            return d.vis == 'goals';
+        })
+        // console.log(cellsWithBars);
 
     // Update the width of the cell
     cellsWithGoals.attr("width", goalCellWidth);
@@ -315,12 +315,12 @@ function createTree(treeData) {
 
     var svg = d3.select('#tree')
         .attr("transform",
-            "translate(" + margin/2 + "," + 0 + ")");;
-        // .append('svg')
-        // .attr('width', w)
-        // .attr('height', h)
-        // .append('svg:g')
-        // .attr('transform', 'translate(0,40)');
+            "translate(" + margin / 2 + "," + 0 + ")");;
+    // .append('svg')
+    // .attr('width', w)
+    // .attr('height', h)
+    // .append('svg:g')
+    // .attr('transform', 'translate(0,40)');
 
     var root = d3.stratify()
         .id(function(d) {
@@ -331,14 +331,14 @@ function createTree(treeData) {
             let number = parseInt(d.ParentGame);
 
             if (d.ParentGame == "") {
-                console.log("return the first: " + d.id)
+                // console.log("return the first: " + d.id)
                 return "";
             }
-            console.log("Number is: " + number);
+            // console.log("Number is: " + number);
             let parent = treeData[d.ParentGame];
-            console.log(parent);
-            console.log(parent.id);
-            console.log("\n\n");
+            // console.log(parent);
+            // console.log(parent.id);
+            // console.log("\n\n");
             return parent.id;
         })
         (treeData);
@@ -404,6 +404,11 @@ function createTree(treeData) {
         // .style("text-anchor", function(d) {
         //     return d.children ? "end" : "start";
         // })
+        .attr("class", "tree-text")
+        .attr('data-team', function(d) {
+            // console.log(d);
+            return d.data.Team;
+        })
         .text(function(d) {
             // console.log(d);
             return d.data.Team;
@@ -417,28 +422,66 @@ function createTree(treeData) {
  * @param team a string specifying which team was selected in the table.
  */
 function updateTree(row, i) {
-    console.log("upate tree: ");
-    console.log(row);
-
+    // Setup
     var name = row.key;
-
     var svg = d3.select('#tree');
-    var node = svg.selectAll(".node")
-        .data(nodes.descendants());
 
-    console.log(node);
+    clearTree();
 
+    // If row selected is an aggregate row
+    if (row.value.type == 'aggregate') {
+        var treeText = svg.selectAll('.tree-text')
+            .filter(function(d) {
+                // console.log(d);
+                return d.data.Team == name;
+            })
+            .attr("class", "tree-text tree-node-highlight");
 
+        var treeLinks = svg.selectAll(".link")
+            .filter(function(d) {
+                // console.log(d);
+                return d.data.Team == name;
+            })
+            .attr("class", "link selected");
+    }
+    // Else row highlighted is a game
+    else {
+        var names = name.split("Game"); // names stores each team in a game
 
+        var treeText = svg.selectAll('.tree-text')
+            .filter(function(d) {
+                // Find whether the node id includes both teams
+                var id = d.id;
+                var includesGames = id.includes(names[0] + names[1]) || id.includes(names[1] + names[0]);
+
+                return includesGames;
+            })
+            .attr("class", "tree-text tree-node-highlight");
+
+        var treeLinks = svg.selectAll(".link")
+            .filter(function(d) {
+                // Find whether the node id includes both teams
+                var id = d.id;
+                var includesGames = id.includes(names[0] + names[1]) || id.includes(names[1] + names[0]);
+
+                return includesGames;
+            })
+            .attr("class", "link selected");
+    }
 }
 
 /**
  * Removes all highlighting from the tree.
  */
 function clearTree() {
+    var svg = d3.select('#tree');
 
+    // Clear previous Highlights
+    svg.selectAll('.tree-text')
+        .attr("class", "tree-text tree-node-normal");
 
-
+    svg.selectAll('.link')
+        .attr("class", "link")
 }
 
 function printTable() {

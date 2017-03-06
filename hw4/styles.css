@@ -120,6 +120,14 @@ header {
     font: 14px sans-serif;
 }
 
+.tree-node-highlight {
+    fill: red;
+}
+
+.tree-node-normal {
+    fill: black;
+}
+
 circle.winner {
     fill: #364e74;
 }
