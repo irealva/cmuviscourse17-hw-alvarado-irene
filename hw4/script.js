@@ -141,26 +141,26 @@ function updateTable() {
             var result = [];
 
             if (row.value.type == "aggregate") {
-                result.push(createCell('text', row.key));
+                result.push(createCell('text-team', row.key));
                 result.push(createCell('goals-aggregate', {
                     "made": row.value["Goals Made"],
                     "lost": row.value["Goals Conceded"],
                     "delta": row.value["Delta Goals"]
                 }));
-                result.push(createCell('text', row.value.Result.label));
+                result.push(createCell('text-result', row.value.Result.label));
                 result.push(createCell('bar', row.value.Wins));
                 result.push(createCell('bar', row.value.Losses));
                 result.push(createCell('bar', row.value.TotalGames));
             }
 
             if (row.value.type == "game") {
-                result.push(createCell('text', row.name));
+                result.push(createCell('text-team', row.name));
                 result.push(createCell('goals-game', {
                     "made": row.value["Goals Made"],
                     "lost": row.value["Goals Conceded"],
                     "delta": (row.value["Goals Made"] - row.value["Goals Conceded"])
                 }));
-                result.push(createCell('text', row.value.Result.label));
+                result.push(createCell('text-result', row.value.Result.label));
                 result.push(createCell('text', ""));
                 result.push(createCell('text', ""));
                 result.push(createCell('text', ""));
@@ -196,10 +196,16 @@ function createCell(vis, value) {
 function createTextSection(cells) {
     // Get the cells that will have text
     var cellsWithText = cells.filter(function(d) {
-        return d.vis == 'text';
+        return (d.vis == 'text-result') || (d.vis == 'text-team');
     })
     cellsWithText.text(function(d) {
         return d.value;
+    })
+    .attr("class", function(d) {
+        console.log(d);
+        if (d.vis == "text-team") {
+            return (d.value.startsWith('x')) ? "game" : "aggregate";
+        }        
     });
 }
 

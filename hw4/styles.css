@@ -27,10 +27,13 @@ tbody th{
 
 .aggregate{
     color: #317f19;
+    text-align: right;
+    font-weight: bold;
 }
 
 .game{
     color: #b1b1b1;
+    text-align: right;
 }
 
 tbody td {
@@ -45,7 +48,7 @@ tbody tr:hover {
 }
 
 tbody tr .game {
-    background-color: #f0f0f0;
+    /*background-color: #f0f0f0;*/
 }
 
 /*tbody tr .game:hover {*/
