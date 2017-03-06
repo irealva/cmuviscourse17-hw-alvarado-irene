@@ -33,7 +33,7 @@ var aggregateColorScale = d3.scaleLinear()
 /**For goal Column*/
 var goalColorScale = d3.scaleQuantize()
     .domain([-1, 1])
-    .range(['#cb181d', '#034e7b']);
+    .range(['#FF6961', '#759BA9']);
 
 /**json Object to convert between rounds/results and ranking value*/
 var rank = {
@@ -117,9 +117,6 @@ function createTable() {
  *
  */
 function updateTable() {
-    console.log("\n\n");
-    console.log("UPDATING TABLE AGAIN");
-
     // select the body section of the table
     var table = d3.select('#matchTable').select('tbody');
     // console.log(table.node());
@@ -138,9 +135,6 @@ function updateTable() {
         })
         .exit().remove();
 
-
-    // rows.order();
-
     // Create a cell for each row in each column
     var cells = rows.selectAll('td')
         // Return an array for each row [ cell1, cell2, cell3, etc.. ]
@@ -150,7 +144,7 @@ function updateTable() {
 
             if (row.value.type == "aggregate") {
                 result.push(createCell('text', row.key));
-                result.push(createCell('goals', {
+                result.push(createCell('goals-aggregate', {
                     "made": row.value["Goals Made"],
                     "lost": row.value["Goals Conceded"],
                     "delta": row.value["Delta Goals"]
@@ -163,7 +157,7 @@ function updateTable() {
 
             if (row.value.type == "game") {
                 result.push(createCell('text', row.name));
-                result.push(createCell('goals', {
+                result.push(createCell('goals-game', {
                     "made": row.value["Goals Made"],
                     "lost": row.value["Goals Conceded"],
                     "delta": (row.value["Goals Made"] - row.value["Goals Conceded"])
@@ -181,7 +175,27 @@ function updateTable() {
     // .attr("width", cellWidth)
     // .attr("height", cellHeight);
 
+    createTextSection(cells);
+    createGoalsSection(cells);
+    createBarSection(cells);
 
+    // Add ability to click on each row
+    rows.on("click", updateList);
+    rows.on("mouseover", updateTree);
+    rows.on("mouseout", clearTree);
+
+}
+
+function createCell(vis, value) {
+    var cell = {
+        "type": "row",
+        "vis": vis,
+        "value": value
+    };
+    return cell;
+}
+
+function createTextSection(cells) {
     // Get the cells that will have text
     var cellsWithText = cells.filter(function(d) {
         return d.vis == 'text';
@@ -189,7 +203,142 @@ function updateTable() {
     cellsWithText.text(function(d) {
         return d.value;
     });
+}
 
+// Create the goals section
+function createGoalsSection(cells) {
+    // Get the cells that will have the bar charts
+    var cellsWithGoals = cells.filter(function(d) {
+            return (d.vis == 'goals-aggregate') || (d.vis == 'goals-game');
+        })
+        // Update the width of the cell
+        .attr("width", goalCellWidth);
+
+    // Append an svg inside each cell
+    cellsWithGoals = cellsWithGoals.append("svg")
+        // Attributes of SVG
+        .attr("width", goalCellWidth + 40)
+        .attr("height", cellHeight);
+
+    // Inside each svg add a rect for the bar
+    // Returns different styles for rows that are aggregates and rows that are games
+    cellsWithGoals.append("rect")
+        .attr("x", function(d) {
+            var min = Math.min(d.value.made, d.value.lost);
+            return goalScale(min);
+        })
+        .attr("y", function(d) {
+            if (d.vis == 'goals-aggregate') {
+                return 0;
+            } else {
+                return '50%';
+            }
+        })
+        .attr("width", function(d) {
+            // The width will be the delta of made goals - lost goals
+            return goalScale(Math.abs(d.value.delta));
+        })
+        .attr("height", function(d) {
+            if (d.vis == 'goals-aggregate') {
+                return barHeight;
+            } else {
+                return 4;
+            }
+        })
+        .attr("fill", function(d) {
+            return goalColorScale(d.value.delta);
+        })
+        //Rounding corners of rect
+        .attr("rx", function(d) {
+            if (d.vis == 'goals-aggregate') {
+                return 10;
+            } else {
+                return 0;
+            }
+        })
+        .attr("ry", function(d) {
+            if (d.vis == 'goals-aggregate') {
+                return 10;
+            } else {
+                return 0;
+            }
+        });
+
+    var radius = 10;
+
+    // Add circle for lower end of bar
+    cellsWithGoals.append("circle")
+        .attr("r", function(d) {
+            if (d.vis == 'goals-aggregate') {
+                return radius;
+            } else {
+                return radius - 4;
+            }
+        })
+        .attr("cx", function(d) {
+            var min = Math.min(d.value.made, d.value.lost);
+            // plus the radius divided by two
+            return goalScale(min) + (radius / 2);
+        })
+        .attr("cy", function(d) {
+            return '50%';
+        })
+        .attr("class", function(d) {
+            if (d.value.delta < 0) {
+                if (d.vis == 'goals-aggregate') {
+                    return 'winner';
+                }
+                else {
+                    return 'winner-game';
+                }
+            } else {
+                if (d.vis == 'goals-aggregate') {
+                    return 'loser';
+                }
+                else {
+                    return 'loser-game';
+                }
+            }
+        });
+
+    // Add circle for higher end of bar
+    cellsWithGoals.append("circle")
+        .attr("r", function(d) {
+            if (d.vis == 'goals-aggregate') {
+                return radius;
+            } else {
+                return radius - 4;
+            }
+        })
+        .attr("cx", function(d) {
+            var min = Math.min(d.value.made, d.value.lost);
+            var y = goalScale(min) + goalScale(Math.abs(d.value.delta)) - (radius / 2);
+
+            return y;
+        })
+        .attr("cy", function(d) {
+            return '50%';
+        })
+        .attr("class", function(d) {
+            if (d.value.delta < 0) {
+                if (d.vis == 'goals-aggregate') {
+                    return 'loser';
+                }
+                else {
+                    return 'loser-game';
+                }
+            } else {
+                if (d.vis == 'goals-aggregate') {
+                    return 'winner';
+                }
+                else {
+                    return 'winner-game';
+                }
+            }
+        });
+}
+
+function createBarSection(cells) {
     // Get the cells that will have the bar charts
     var cellsWithBars = cells.filter(function(d) {
         return d.vis == 'bar';
@@ -208,52 +357,6 @@ function updateTable() {
         .attr("fill", function(d) {
             return aggregateColorScale(d.value);
         });
-
-    // Get the cells that will have the bar charts
-    var cellsWithGoals = cells.filter(function(d) {
-            return d.vis == 'goals';
-        })
-        // console.log(cellsWithBars);
-
-    // Update the width of the cell
-    cellsWithGoals.attr("width", goalCellWidth);
-
-    cellsWithGoals.append("svg")
-        // Attributes of SVG
-        .attr("width", goalCellWidth)
-        .attr("height", cellHeight)
-        // Inside each svg add a rect for the bar
-        .append("rect")
-        .attr("x", function(d) {
-            var min = Math.min(d.value.made, d.value.lost);
-            return goalScale(min);
-        })
-        .attr("width", function(d) {
-            // The width will be the delta of made goals - lost goals
-            return goalScale(Math.abs(d.value.delta));
-        })
-        .attr("height", barHeight)
-        .attr("fill", function(d) {
-            return goalColorScale(d.value.delta);
-        })
-        //Rounding corners of rect
-        .attr("rx", 10)
-        .attr("ry", 10);
-
-    // Add ability to click on each row
-    rows.on("click", updateList);
-    rows.on("mouseover", updateTree);
-    rows.on("mouseout", clearTree);
-
-}
-
-function createCell(vis, value) {
-    var cell = {
-        "type": "row",
-        "vis": vis,
-        "value": value
-    };
-    return cell;
 }
 
 
