@@ -103,13 +103,32 @@ d3.csv("data/fifa-tree.csv", function(error, csvData) {
 function createTable() {
     tableElements = teamData;
 
+    // Find minimum x for minimum goal
+    var x = goalScale(0);
 
-    // console.log(tableElements);
+    var goalsCell = d3.select('#goalHeader').append("svg")
+        .attr("width", goalCellWidth + 20)
+        .attr("height", 40)
+        .style("transform", "translate(" + x + "px, -5px)");
 
-    // ******* TODO: PART II *******
+    var axis = d3.axisTop(goalScale);
+    axis.ticks(10);
+
+    goalsCell.append("g")
+        .attr("transform", "translate(0,30)")
+        .call(axis);
+
+    // var goalsAxis = d3.svg.axis()
+    //   .scale(goalScale)
+    //   .orient("bottom")
+    //   .ticks(5);  //Set rough # of ticks
+    //
+    // goalsCell.append("g")
+    //   .attr("class", "axis")
+    //   .attr("transform", "translate(" + 10 + ",0)")
+    //   .call(goalsAxis);
 
     // ******* TODO: PART V (Extra Credit) *******
-
 }
 
 /**
@@ -202,10 +221,9 @@ function createTextSection(cells) {
         return d.value;
     })
     .attr("class", function(d) {
-        console.log(d);
         if (d.vis == "text-team") {
             return (d.value.startsWith('x')) ? "game" : "aggregate";
-        }        
+        }
     });
 }
 
