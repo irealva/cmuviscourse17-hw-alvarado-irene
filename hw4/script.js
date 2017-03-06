@@ -118,16 +118,6 @@ function createTable() {
         .attr("transform", "translate(0,30)")
         .call(axis);
 
-    // var goalsAxis = d3.svg.axis()
-    //   .scale(goalScale)
-    //   .orient("bottom")
-    //   .ticks(5);  //Set rough # of ticks
-    //
-    // goalsCell.append("g")
-    //   .attr("class", "axis")
-    //   .attr("transform", "translate(" + 10 + ",0)")
-    //   .call(goalsAxis);
-
     // ******* TODO: PART V (Extra Credit) *******
 }
 
