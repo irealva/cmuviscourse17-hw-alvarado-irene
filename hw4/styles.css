@@ -136,6 +136,10 @@ circle.loser {
     fill: #be2714;
 }
 
+circle.tie {
+    fill: gray;
+}
+
 circle.winner-game {
     stroke: #364e74;
     stroke-width: 3px;

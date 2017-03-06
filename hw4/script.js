@@ -119,7 +119,6 @@ function createTable() {
 function updateTable() {
     // select the body section of the table
     var table = d3.select('#matchTable').select('tbody');
-    // console.log(table.node());
 
     rows = table.selectAll('tr')
         // Make sure we keep object consistency between our data and HTML Dom objects
@@ -139,7 +138,6 @@ function updateTable() {
     var cells = rows.selectAll('td')
         // Return an array for each row [ cell1, cell2, cell3, etc.. ]
         .data(function(row, i) {
-            // console.log(row);
             var result = [];
 
             if (row.value.type == "aggregate") {
@@ -235,8 +233,14 @@ function createGoalsSection(cells) {
             }
         })
         .attr("width", function(d) {
-            // The width will be the delta of made goals - lost goals
-            return goalScale(Math.abs(d.value.delta));
+            if (d.value.delta == 0) {
+                return 0;
+            }
+            else {
+                // The width will be the delta of made goals - lost goals
+                var width = goalScale(Math.abs(d.value.delta));
+                return (d.vis == 'goals-aggregate') ? width : (width-cellBuffer);
+            }
         })
         .attr("height", function(d) {
             if (d.vis == 'goals-aggregate') {
@@ -278,26 +282,20 @@ function createGoalsSection(cells) {
         .attr("cx", function(d) {
             var min = Math.min(d.value.made, d.value.lost);
             // plus the radius divided by two
-            return goalScale(min) + (radius / 2);
+            return goalScale(min) + (radius/2);
         })
         .attr("cy", function(d) {
             return '50%';
         })
         .attr("class", function(d) {
+            if (d.value.delta == 0) {
+                return 'tie';
+            }
+
             if (d.value.delta < 0) {
-                if (d.vis == 'goals-aggregate') {
-                    return 'winner';
-                }
-                else {
-                    return 'winner-game';
-                }
+                return (d.vis == 'goals-aggregate') ? 'winner' : 'winner-game';
             } else {
-                if (d.vis == 'goals-aggregate') {
-                    return 'loser';
-                }
-                else {
-                    return 'loser-game';
-                }
+                return (d.vis == 'goals-aggregate') ? 'loser' : 'loser-game';
             }
         });
 
@@ -312,7 +310,7 @@ function createGoalsSection(cells) {
         })
         .attr("cx", function(d) {
             var min = Math.min(d.value.made, d.value.lost);
-            var y = goalScale(min) + goalScale(Math.abs(d.value.delta)) - (radius / 2);
+            var y = goalScale(min) + goalScale(Math.abs(d.value.delta)) - (radius);
 
             return y;
         })
@@ -320,20 +318,14 @@ function createGoalsSection(cells) {
             return '50%';
         })
         .attr("class", function(d) {
+            if (d.value.delta == 0) {
+                return 'tie';
+            }
+
             if (d.value.delta < 0) {
-                if (d.vis == 'goals-aggregate') {
-                    return 'loser';
-                }
-                else {
-                    return 'loser-game';
-                }
+                return (d.vis == 'goals-aggregate') ? 'loser' : 'loser-game';
             } else {
-                if (d.vis == 'goals-aggregate') {
-                    return 'winner';
-                }
-                else {
-                    return 'winner-game';
-                }
+                return (d.vis == 'goals-aggregate') ? 'winner' : 'winner-game';
             }
         });
 }
@@ -375,7 +367,6 @@ function collapseList(i, n) {
  *
  */
 function updateList(currentRow, i) {
-    // console.log(tableElements.length);
     var index = tableElements.indexOf(currentRow);
 
     nextRow = tableElements[index + 1];
@@ -389,7 +380,6 @@ function updateList(currentRow, i) {
             for (var j = 0; j < games.length; j++) {
                 tableElements.splice((index + 1 + j), 0, games[j]);
             }
-            // console.log(tableElements);
         }
         // If the next row is a game, we want to collapse the row
         if (nextRow != undefined && nextRow.value.type == "game") {
@@ -419,29 +409,19 @@ function createTree(treeData) {
     var svg = d3.select('#tree')
         .attr("transform",
             "translate(" + margin / 2 + "," + 0 + ")");;
-    // .append('svg')
-    // .attr('width', w)
-    // .attr('height', h)
-    // .append('svg:g')
-    // .attr('transform', 'translate(0,40)');
 
     var root = d3.stratify()
         .id(function(d) {
-            // console.log(d);
             return d.id;
         })
         .parentId(function(d) {
             let number = parseInt(d.ParentGame);
 
             if (d.ParentGame == "") {
-                // console.log("return the first: " + d.id)
                 return "";
             }
-            // console.log("Number is: " + number);
             let parent = treeData[d.ParentGame];
-            // console.log(parent);
-            // console.log(parent.id);
-            // console.log("\n\n");
+
             return parent.id;
         })
         (treeData);
@@ -475,7 +455,6 @@ function createTree(treeData) {
             return "translate(" + d.y + "," + d.x + ")";
         })
         .attr('data-team', function(d) {
-            // console.log(d);
             return d.data.Team;
         });
 
@@ -509,11 +488,9 @@ function createTree(treeData) {
         // })
         .attr("class", "tree-text")
         .attr('data-team', function(d) {
-            // console.log(d);
             return d.data.Team;
         })
         .text(function(d) {
-            // console.log(d);
             return d.data.Team;
         });
 };
@@ -535,14 +512,12 @@ function updateTree(row, i) {
     if (row.value.type == 'aggregate') {
         var treeText = svg.selectAll('.tree-text')
             .filter(function(d) {
-                // console.log(d);
                 return d.data.Team == name;
             })
             .attr("class", "tree-text tree-node-highlight");
 
         var treeLinks = svg.selectAll(".link")
             .filter(function(d) {
-                // console.log(d);
                 return d.data.Team == name;
             })
             .attr("class", "link selected");
@@ -587,6 +562,9 @@ function clearTree() {
         .attr("class", "link")
 }
 
+/**
+ * Helper function to log the table of elements
+ */
 function printTable() {
     var string = "";
     var i = 0;
